@@ -1,0 +1,18 @@
+{{#each this}}
+    <li class="gallery-list__item">
+        <a class="gallery-list__card" href="">
+            <div class="gallery-list__poster">
+                <img class="gallery-list__img" src="{{'https://image.tmdb.org/t/p/w500'+poster_path}}" alt="{{original_title}}" loading="lazy" />
+            </div>
+
+            <div class="gallery-list__description">
+                <h2 class="gallery-list__titel">{{original_title}}</h2>
+                <div class="gallery-list__info">
+
+                    <p class="gallery-list__genre">{{Genres}} | <span class="gallery-list__Year">{{Year}}</span> </p>
+
+                </div>
+            </div>
+        </a>
+    </li>
+{{/each}}
