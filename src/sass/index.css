@@ -76,8 +76,10 @@ img {
 }
 
 .header {
-  padding-top: 16px;
   border-bottom: 1px solid #ececec;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 @media screen and (min-width: 1200px) {
@@ -86,6 +88,24 @@ img {
     border-bottom: 1px solid #ececec;
     height: 216px;
     background-image: url(../images/hero-desck-min.png);
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .header {
+    padding-top: 40px;
+    border-bottom: 1px solid #ececec;
+    height: 216px;
+    background-image: url(../images/hero-tablet-min.png);
+  }
+}
+
+@media screen and (min-width: 1px) and (max-width: 767px) {
+  .header {
+    padding-top: 40px;
+    border-bottom: 1px solid #ececec;
+    height: 216px;
+    background-image: url(../images/hero-mob-min.png);
   }
 }
 
@@ -153,7 +173,7 @@ img {
 
 @media screen and (max-width: 767px) {
   .header__navigation {
-    display: none;
+    margin-right: 20px;
   }
 }
 
@@ -167,6 +187,7 @@ img {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    margin-right: 32px;
   }
 }
 
@@ -174,12 +195,6 @@ img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-}
-
-@media screen and (max-width: 767px) {
-  .header-list {
-    display: none;
-  }
 }
 
 .header-list__item {
@@ -224,6 +239,7 @@ img {
 }
 
 .header__logo {
+  margin-left: 32px;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
@@ -239,15 +255,25 @@ img {
   color: #FFFFFF;
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1px) and (max-width: 768px) {
   .header__logo {
-    margin-left: 32px;
+    display: none;
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 767px) {
   .header__logo {
-    margin-left: 28px;
+    margin-left: 20px;
+  }
+}
+
+.header__logo-icon {
+  margin-right: 10px;
+}
+
+@media screen and (min-width: 1px) and (max-width: 768px) {
+  .header__logo-icon {
+    display: auto;
   }
 }
 
@@ -259,10 +285,6 @@ img {
 
 .link {
   text-decoration: none;
-}
-
-.header_logo-icon {
-  margin-right: 10px;
 }
 
 .home-header_search {
