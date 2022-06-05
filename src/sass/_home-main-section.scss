@@ -1,10 +1,10 @@
 .gallery {
     padding-top: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 40px;
 
     @media screen and (min-width: 768px) {
         padding-top: 60px;
-        padding-bottom: 60px;
+        padding-bottom: 50px;
     }
 }
 
@@ -15,17 +15,19 @@
 
     @media screen and (min-width: 768px) {
         flex-direction: row;
-        margin: -16px;
+        margin: -15px;
     }
 
     &__item {
         margin-bottom: 20px;
         width: 100%;
+        &:last-child {
+            margin-bottom: 0px;
+        }
 
         @media screen and (min-width: 768px) {
-            // margin-bottom: 0px;
-            margin: 16px;
-            flex-basis: calc(100% / 2 - 32px);
+            margin: 15px;
+            flex-basis: calc(100% / 2 - 30px);
         }
 
         @media screen and (min-width: 1024px) {
@@ -70,18 +72,18 @@
         height: 402px;
 
         @media screen and (min-width: 768px) {
-            height: 455px;
-            width: 336px;
+            height: 398px;
+            width: 293px;
         }
 
         @media screen and (min-width: 1024px) {
-            height: 449px;
-            width: 309px;
+            height: 398px;
+            width: 274px;
         }
     }
 
     &__description {
-        padding-top: 10px;
+        margin-top: 10px;
     }
 
     &__genre {

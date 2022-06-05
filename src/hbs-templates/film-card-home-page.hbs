@@ -1,6 +1,6 @@
 {{#each this}}
     <li class="gallery-list__item">
-        <a class="gallery-list__card" href="">
+        <div class="gallery-list__card">
             <div class="gallery-list__poster">
                 <img class="gallery-list__img" src="{{'https://image.tmdb.org/t/p/w500'+poster_path}}" alt="{{original_title}}" loading="lazy" />
             </div>
@@ -13,6 +13,6 @@
 
                 </div>
             </div>
-        </a>
+        </div>
     </li>
 {{/each}}
