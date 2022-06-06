@@ -2,7 +2,7 @@ import axios from 'axios';
 import modalTemplate from '../hbs-templates/modal-film.hbs';
 
 const KEY = 'c8ef48bae82b60cf66a4f0e6e3dd153e';
-const BASE_URL = `https://api.themoviedb.org/3/movie/6`;
+const BASE_URL = `https://api.themoviedb.org/3/movie/18`;
 const BASE_URL_CONFIG = 'https://api.themoviedb.org/3/configuration';
 
 const options = {
@@ -43,6 +43,9 @@ export function homeModalJS() {
       movie.data.poster_path;
     movie.data.absolut_poster_path = posterImageSRC;
     movie.data.genre = movie.data.genres[0].name;
+    movie.data.original_title_to_UpperCase =
+      movie.data.original_title.toUpperCase();
+    movie.data.popularity_to_Fixed = movie.data.popularity.toFixed(1);
 
     return movie.data;
   }
