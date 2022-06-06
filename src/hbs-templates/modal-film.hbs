@@ -1,0 +1,43 @@
+<div class='modal is-hidden'>
+  <div class='thumb-for-image'>
+    <img class='modal-poster' src='{{absolut_poster_path}}' />
+  </div>
+  <div class='original-title'>{{original_title}}</div>
+  <table class='modal__movie-info-table'>
+    <tbody>
+      <tr class='modal__movie-info-table-row row1'>
+        <td class='modal__movie-info-table-title col1'>Vote / Votes</td>
+        <td class='col2'>
+          <div class='cell-div'>
+            <div class='col2-vote'>{{vote_average}}</div>
+            <p>/</p>
+            <div class='col2-votes'>{{vote_count}}</div>
+          </div>
+        </td>
+      </tr>
+      <tr class='modal__movie-info-table-row row2'>
+        <td class='modal__movie-info-table-title col1'>Popularity</td>
+        <td class='col2'>{{popularity}}</td>
+      </tr>
+      <tr class='modal__movie-info-table-row row3'>
+        <td class='modal__movie-info-table-title col1'>Original Title</td>
+        <td class='col2'>{{original_title}}</td>
+      </tr>
+      <tr class='modal__movie-info-table-row row4'>
+        <td class='modal__movie-info-table-title col1'>Genre</td>
+        <td class='col2'>{{genre}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 class='modal__movie-about'>ABOUT</h3>
+  <p class='modal__movie-about-description'>{{overview}}</p>
+
+  <div class='button-block'>
+    <button type='button' class='button-in-modal add-to-watched-button'>
+      ADD TO WATCHED
+    </button>
+    <button type='button' class='button-in-modal add-to-queue-button'>
+      ADD TO QUEUE
+    </button>
+  </div>
+</div>
