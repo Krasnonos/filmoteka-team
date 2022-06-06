@@ -178,13 +178,30 @@
 
             }
 
+            @media screen and (min-width: 1200px) {
+                width: 147px;
+                height: 42px;
+            }
+
+
+
+            @media screen and (min-width: 768px) {
+                width: 152px;
+                height: 44px;
+            }
+
+            @media screen and (min-width: 1px) and (max-width: 767px) {
+                width: 129.53px;
+                height: 44px;
+            }
+
             font-family: 'Roboto';
             font-style: normal;
             font-weight: 500;
             font-size: 12px;
             line-height: 16px;
-            width: 147px;
-            height: 42px;
+            // width: 147px;
+            // height: 42px;
             text-transform: uppercase;
             color: #FFFFFF;
 

@@ -227,8 +227,25 @@
         color: #FFFFFF;
     }
 
-    width: 324px;
-    height: 20px;
+    @media screen and (min-width: 1200px) {
+        width: 324px;
+        height: 20px;
+    }
+
+
+
+    @media screen and (min-width: 768px) {
+        width: 324px;
+        height: 20px;
+    }
+
+    @media screen and (min-width: 1px) and (max-width: 767px) {
+        width: 268px;
+        height: 20px;
+    }
+
+    // width: 324px;
+    // height: 20px;
     border: none;
 
     background: transparent;
