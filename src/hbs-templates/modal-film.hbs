@@ -1,5 +1,10 @@
 <div class='modal__box'>
-  <div class='modal is-hidden'>
+  <div class='modal' data-movie-id='{{id}}'>
+    <button type='button' class='modal__close-button' data-action='close'>
+      <svg class='modal__icon-close'>
+        <use href='/icons.adfc4680.svg#icon-close'></use>
+      </svg>
+    </button>
     <div class='modal__thumb-for-image'>
       <img class='modal__poster' src='{{absolut_poster_path}}' />
     </div>

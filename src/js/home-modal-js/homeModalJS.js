@@ -1,5 +1,9 @@
 import axios from 'axios';
-import modalTemplate from '../hbs-templates/modal-film.hbs';
+import modalTemplate from '../../hbs-templates/modal-film.hbs';
+import { refs } from '../refs';
+import { svgSprite } from '../../images/icons.svg';
+
+console.log(svgSprite);
 
 const KEY = 'c8ef48bae82b60cf66a4f0e6e3dd153e';
 const BASE_URL = `https://api.themoviedb.org/3/movie/18`;
@@ -52,14 +56,17 @@ export function homeModalJS() {
 
   getModalData().then(resp => {
     const markup = modalTemplate(resp);
-    backdropRef.insertAdjacentHTML('beforeend', markup);
-    const showModalButtonRef = document.querySelector('.show-modal-button');
+    refs.modalBackdropRef.insertAdjacentHTML('beforeend', markup);
+    const showModalButtonRef = document.querySelector(
+      '.modal .modal__close-button'
+    );
 
     showModalButtonRef.addEventListener('click', () => {
       console.log('click');
-      backdropRef.classList.toggle('is-hidden');
+      refs.modalBackdropRef.classList.toggle('is-hidden');
+      refs.bodyRef.classList.toggle('modal-open');
     });
   });
 
-  const backdropRef = document.querySelector('.backdrop');
+  refs.bodyRef.classList.add('modal-open');
 }
