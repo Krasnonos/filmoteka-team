@@ -4,7 +4,7 @@
 
     @media screen and (min-width: 768px) {
         padding-top: 60px;
-        padding-bottom: 50px;
+        padding-bottom: 60px;
     }
 }
 
@@ -15,7 +15,6 @@
 
     @media screen and (min-width: 768px) {
         flex-direction: row;
-        margin: -15px;
     }
 
     &__item {
@@ -26,12 +25,13 @@
         }
 
         @media screen and (min-width: 768px) {
-            margin: 15px;
-            flex-basis: calc(100% / 2 - 30px);
+            margin: 16px;
+            flex-basis: calc(100% / 2 - 32px);
         }
 
         @media screen and (min-width: 1024px) {
-            flex-basis: calc(100% / 3 - 32px);
+            margin: 16px 8px;
+            flex-basis: calc(100% / 3 - 16px);
         }
     }
 
@@ -72,13 +72,13 @@
         height: 402px;
 
         @media screen and (min-width: 768px) {
-            height: 398px;
-            width: 293px;
+            height: 455px;
+            width: 336px;
         }
 
         @media screen and (min-width: 1024px) {
-            height: 398px;
-            width: 274px;
+            height: 449px;
+            width: 309px;
         }
     }
 
