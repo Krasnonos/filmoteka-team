@@ -149,6 +149,16 @@
 
             margin-right: 10px;
         }
+
+        &:hover,
+        &:focus {
+            color: #ff6b08;
+        }
+
+        &:hover .header__logo-icon,
+        &:focus .header__logo-icon {
+            fill: #ff6b08;
+        }
     }
 }
 
@@ -163,6 +173,11 @@
 
     @media screen and (min-width: 768px) {
         display: none;
+    }
+
+    &:hover .header__logo-mob-icon,
+    &:focus .header__logo-mob-icon {
+        fill: #ff6b08;
     }
 }
 
