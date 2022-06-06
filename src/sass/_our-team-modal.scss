@@ -222,6 +222,13 @@
     font-size: 16px;
   }
 }
+.team-list__message-content {
+  display: flex;
+  align-items: flex-end;
+}
+.team-list__message-content--reverse {
+  flex-direction: row-reverse;
+}
 .team-list__socials {
   display: flex;
   text-align: center;
@@ -240,4 +247,21 @@
   fill: #2196f3;
 }
 .team-list__link-svg {
+}
+.team-list__message-time {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33;
+}
+.team-list__message-time--row {
+  margin-left: 13px;
+  @media screen and(min-width:768px) {
+    margin-left: 20px;
+  }
+}
+.team-list__message-time--reverse {
+  margin-right: 13px;
+  @media screen and(min-width:768px) {
+    margin-right: 20px;
+  }
 }
