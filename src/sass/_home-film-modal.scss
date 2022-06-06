@@ -1,0 +1,157 @@
+@media screen and (min-width: 320px) {
+  body {
+    overflow-x: scroll;
+  }
+  // overflow-x: scroll;
+
+  body.modal-open {
+    overflow: hidden;
+  }
+
+  .is-hidden.backdrop {
+    visibility: 0;
+    opacity: 0;
+    pointer-events: none;
+    & .modal {
+      position: relative;
+      top: 50%;
+      left: 50%;
+      opacity: 0;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .backdrop {
+    font-family: 'Roboto';
+    color: #000;
+    position: fixed;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 40px;
+    background: rgba(0, 0, 0, 0.2);
+    transition-property: opacity;
+    transition-duration: 250ms;
+    overflow-y: scroll;
+    //   overflow-x: scroll;
+  }
+
+  .modal {
+    width: 280px;
+    padding: 48px 20px 40px 20px;
+    background-color: #fff;
+    overflow-y: scroll;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+    transition-property: scale, transform, opacity;
+    transition-duration: 300ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  // .thumb-for-image {
+  //   border: blue solid 5px;
+  //   border-radius: 50px;
+  // }
+
+  .modal-poster {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+  }
+
+  .original-title {
+    margin-top: 20px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.15;
+    text-transform: uppercase;
+  }
+
+  .button-block {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  .modal__movie-info-table {
+    margin-top: 20px;
+    width: 100%;
+
+    & .modal__movie-info-table-row {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 1.33;
+      &:not(:first-child) {
+        margin-top: 8px;
+      }
+    }
+    & .col1 {
+      color: #8c8c8c;
+    }
+    & .cell-div {
+      display: flex;
+      height: 16px;
+      text-align: center;
+      & .col2-vote {
+        background-color: #ff6b01;
+        border-radius: 5px;
+        color: #fff;
+        width: 36px;
+        margin-right: 3px;
+      }
+      & .col2-votes {
+        background-color: #f7f7f7;
+        border-radius: 5px;
+        color: #000;
+        width: 36px;
+        margin-left: 3px;
+      }
+    }
+  }
+  .modal__movie-about {
+    margin-top: 20px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+  }
+
+  .modal__movie-about-description {
+    margin-top: 8px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.67;
+  }
+  .button-in-modal {
+    border: none;
+    width: 110px;
+    height: 44px;
+    border-radius: 5px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    // display: flex;
+    // align-items: center;
+    // text-align: center;
+    &.add-to-watched-button {
+      padding: 0 10px;
+      background-color: #ff6b01;
+      color: #fff;
+    }
+    &.add-to-queue-button {
+      border: #000000 solid 1px;
+      background-color: #fff;
+    }
+  }
+
+  .show-modal-button {
+    border: #000000 solid 1px;
+  }
+}
