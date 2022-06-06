@@ -76,7 +76,6 @@ img {
 }
 
 .header {
-  border-bottom: 1px solid #ececec;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -85,7 +84,6 @@ img {
 @media screen and (min-width: 1200px) {
   .header {
     padding-top: 40px;
-    border-bottom: 1px solid #ececec;
     height: 216px;
     background-image: url(../images/hero-desck-min.png);
   }
@@ -94,17 +92,15 @@ img {
 @media screen and (min-width: 768px) and (max-width: 1199px) {
   .header {
     padding-top: 40px;
-    border-bottom: 1px solid #ececec;
-    height: 216px;
+    height: 215px;
     background-image: url(../images/hero-tablet-min.png);
   }
 }
 
 @media screen and (min-width: 1px) and (max-width: 767px) {
   .header {
-    padding-top: 40px;
-    border-bottom: 1px solid #ececec;
-    height: 216px;
+    padding-top: 44px;
+    height: 230px;
     background-image: url(../images/hero-mob-min.png);
   }
 }
@@ -398,7 +394,6 @@ img {
 }
 
 .library-header {
-  border-bottom: 1px solid #ececec;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -406,8 +401,7 @@ img {
 
 @media screen and (min-width: 1200px) {
   .library-header {
-    padding: 40px 32px 60px 32px;
-    border-bottom: 1px solid #ececec;
+    padding-top: 40px;
     height: 216px;
     background-image: url(../images/library-desc-min.png);
   }
@@ -415,18 +409,16 @@ img {
 
 @media screen and (min-width: 768px) and (max-width: 1199px) {
   .library-header {
-    padding: 40px 32px 60px 32px;
-    border-bottom: 1px solid #ececec;
-    height: 216px;
+    padding-top: 40px;
+    height: 215px;
     background-image: url(../images/library-tablet-min.png);
   }
 }
 
 @media screen and (min-width: 1px) and (max-width: 767px) {
   .library-header {
-    padding: 44px 20px 62px 20px;
-    border-bottom: 1px solid #ececec;
-    height: 216px;
+    padding-top: 44px;
+    height: 230px;
     background-image: url(../images/library-mob-min.png);
   }
 }
@@ -492,6 +484,13 @@ img {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
+    margin-right: 32px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .library-header__navigation {
+    margin-right: 20px;
   }
 }
 
@@ -505,6 +504,7 @@ img {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    margin-right: 32px;
   }
 }
 
@@ -598,20 +598,16 @@ img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  margin-left: auto;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .library-header_buttons_watch {
-  margin-right: 20px;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
@@ -641,6 +637,24 @@ img {
   color: #ffffff;
   -webkit-box-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
           box-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
+}
+
+.library-header-buttons-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.library-header-buttons-list__item {
+  margin-right: 19.94px;
+}
+
+.library-header-buttons-list__item:last-child {
+  margin-right: 0;
+  -webkit-transition: color 200ms linear;
+  transition: color 200ms linear;
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @media screen and (min-width: 1px) and (max-width: 767px) {

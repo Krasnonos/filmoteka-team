@@ -1,32 +1,32 @@
 .library-header {
     @media screen and (min-width: 1200px) {
-        padding: 40px 32px 60px 32px;
+        padding-top: 40px;
         // padding-bottom: 24px;
-        border-bottom: 1px solid #ececec;
+        // border-bottom: 1px solid #ececec;
         height: 216px;
         background-image: url(../images/library-desc-min.png);
 
     }
 
     @media screen and (min-width: 768px)and (max-width: 1199px) {
-        padding: 40px 32px 60px 32px;
+        padding-top: 40px;
         // padding-bottom: 24px;
-        border-bottom: 1px solid #ececec;
-        height: 216px;
+        // border-bottom: 1px solid #ececec;
+        height: 215px;
         background-image: url(../images/library-tablet-min.png);
     }
 
     @media screen and (min-width: 1px) and (max-width: 767px) {
-        padding: 44px 20px 62px 20px;
+        padding-top: 44px;
         // padding-bottom: 24px;
-        border-bottom: 1px solid #ececec;
-        height: 216px;
+        // border-bottom: 1px solid #ececec;
+        height: 230px;
         background-image: url(../images/library-mob-min.png);
     }
 
 
 
-    border-bottom: 1px solid #ececec;
+    // border-bottom: 1px solid #ececec;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -64,14 +64,18 @@
             align-items: center;
             justify-content: center;
             flex-direction: row;
+            margin-right: 32px;
+        }
 
+        @media screen and (max-width: 767px) {
+            margin-right: 20px;
         }
 
         @media screen and (min-width: 768px) and (max-width: 1199px) {
             display: flex;
             margin-left: 80px;
             flex-direction: column;
-
+            margin-right: 32px;
         }
     }
 
@@ -151,10 +155,11 @@
     }
 
     &_buttons {
+
         display: flex;
-        flex-direction: row;
-        justify-content: center;
+        margin-left: auto;
         align-items: center;
+        justify-content: center;
 
         &_watch {
             @media screen and (min-width: 1200px) {
@@ -162,8 +167,6 @@
                 top: 430px;
 
             }
-
-            margin-right: 20px;
 
             font-family: 'Roboto';
             font-style: normal;
@@ -192,6 +195,23 @@
 
             }
         }
+    }
+}
+
+
+.library-header-buttons-list {
+    display: flex;
+
+
+}
+
+.library-header-buttons-list__item {
+    margin-right: 19.94px;
+
+    &:last-child {
+        margin-right: 0;
+        transition: color 200ms linear;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     }
 }
 

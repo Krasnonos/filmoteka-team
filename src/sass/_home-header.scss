@@ -2,7 +2,7 @@
     @media screen and (min-width: 1200px) {
         padding-top: 40px;
         // padding-bottom: 24px;
-        border-bottom: 1px solid #ececec;
+        // border-bottom: 1px solid #ececec;
         height: 216px;
         background-image: url(../images/hero-desck-min.png);
 
@@ -11,22 +11,22 @@
     @media screen and (min-width: 768px)and (max-width: 1199px) {
         padding-top: 40px;
         // padding-bottom: 24px;
-        border-bottom: 1px solid #ececec;
-        height: 216px;
+        // border-bottom: 1px solid #ececec;
+        height: 215px;
         background-image: url(../images/hero-tablet-min.png);
     }
 
     @media screen and (min-width: 1px) and (max-width: 767px) {
-        padding-top: 40px;
+        padding-top: 44px;
         // padding-bottom: 24px;
-        border-bottom: 1px solid #ececec;
-        height: 216px;
+        // border-bottom: 1px solid #ececec;
+        height: 230px;
         background-image: url(../images/hero-mob-min.png);
     }
 
 
 
-    border-bottom: 1px solid #ececec;
+    // border-bottom: 1px solid #ececec;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
