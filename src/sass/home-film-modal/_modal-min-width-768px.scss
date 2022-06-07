@@ -1,0 +1,30 @@
+@media screen and (min-width: 768px) {
+  .modal__box {
+    width: 704px;
+  }
+
+  .modal {
+    display: flex;
+    width: 100%;
+
+    padding: 40px 72px 40px 36px;
+    justify-content: space-between;
+  }
+
+  .modal__thumb-for-image {
+    width: 264px;
+    height: 373.55px;
+  }
+
+  .modal__thumb-for-description {
+    width: 264px;
+  }
+
+  .modal__original-title {
+    margin-top: 0;
+  }
+
+  .modal__button {
+    width: 125px;
+  }
+}
