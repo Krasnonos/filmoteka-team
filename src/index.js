@@ -1,4 +1,4 @@
-import './js/render-popular-movies';
+// import './js/render-popular-movies';
 import './js/home-modal-js/homeModalJS';
 import './js/advice&team-modal/create-advice-form';
 import './js/advice&team-modal/advice-films-by-ganre';
