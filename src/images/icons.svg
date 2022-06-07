@@ -37,5 +37,11 @@
 <symbol id="icon-facebook" viewBox="0 0 32 32">
 <path d="M19 6h5v-6h-5c-3.86 0-7 3.14-7 7v3h-4v6h4v16h6v-16h5l1-6h-6v-3c0-0.542 0.458-1 1-1z"></path>
 </symbol>
+<symbol id="icon-undo-left" viewBox="0 0 32 32">
+<path d="M23.808 32c3.554-6.439 4.153-16.26-9.808-15.932v7.932l-12-12 12-12v7.762c16.718-0.436 18.58 14.757 9.808 24.238z"></path>
+</symbol>
+<symbol id="icon-redo-right" viewBox="0 0 32 32">
+<path d="M18 7.762v-7.762l12 12-12 12v-7.932c-13.961-0.328-13.362 9.493-9.808 15.932-8.772-9.482-6.909-24.674 9.808-24.238z"></path>
+</symbol>
 </defs>
 </svg>

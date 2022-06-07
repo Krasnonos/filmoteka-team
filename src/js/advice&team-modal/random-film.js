@@ -1,8 +1,8 @@
 export default function randomFilm(filmsArray) {
-  const minNumber = 0;
+  const MIN_NUMBER = 0;
   const maxNumber = filmsArray.length - 1;
   const randomFilmNumber = Math.round(
-    Math.random() * (maxNumber - minNumber) + minNumber
+    Math.random() * (maxNumber - MIN_NUMBER) + MIN_NUMBER
   );
   return filmsArray[randomFilmNumber];
 }
