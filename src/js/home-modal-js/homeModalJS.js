@@ -3,8 +3,6 @@ import modalTemplate from '../../hbs-templates/modal-film.hbs';
 import { refs } from '../refs';
 import { svgSprite } from '../../images/icons.svg';
 
-console.log(svgSprite);
-
 const KEY = 'c8ef48bae82b60cf66a4f0e6e3dd153e';
 const BASE_URL = `https://api.themoviedb.org/3/movie/18`;
 const BASE_URL_CONFIG = 'https://api.themoviedb.org/3/configuration';
@@ -35,12 +33,12 @@ async function fetchSeachRequest(searchInstance) {
   return await searchInstance.get('', options);
 }
 
-export function homeModalJS() {
+function homeModalJS() {
   async function getModalData() {
     const config = await fetchSeachRequest(searchInstanceConfig);
     const movie = await fetchSeachRequest(searchInstance);
-    console.log(config);
-    console.log(movie.data);
+    // console.log(config);
+    // console.log(movie.data);
     const posterImageSRC =
       config.data.images.secure_base_url +
       config.data.images.poster_sizes[3] +
@@ -62,11 +60,14 @@ export function homeModalJS() {
     );
 
     showModalButtonRef.addEventListener('click', () => {
-      console.log('click');
+      // console.log('click');
       refs.modalBackdropRef.classList.toggle('is-hidden');
       refs.bodyRef.classList.toggle('modal-open');
     });
   });
 
-  refs.bodyRef.classList.add('modal-open');
+  // refs.bodyRef.classList.add('modal-open');
+  refs.modalBackdropRef.classList.add('is-hidden');
 }
+
+homeModalJS();
