@@ -1,0 +1,117 @@
+.gallery {
+    padding-top: 20px;
+    padding-bottom: 40px;
+
+    @media screen and (min-width: 768px) {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+}
+
+.gallery-list {
+    display: flex;
+    flex-wrap: wrap;
+
+
+    @media screen and (min-width: 768px) {
+        flex-direction: row;
+    }
+
+    &__item {
+        margin-bottom: 20px;
+        width: 100%;
+        &:last-child {
+            margin-bottom: 0px;
+        }
+
+        @media screen and (min-width: 768px) {
+            margin: 16px;
+            flex-basis: calc(100% / 2 - 32px);
+        }
+
+        @media screen and (min-width: 1024px) {
+            margin: 16px 8px;
+            flex-basis: calc(100% / 3 - 16px);
+        }
+    }
+
+    &__titel {
+        text-transform: uppercase;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 1.33;
+        color: #000000;
+    }
+
+    &__genre {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 1.33;
+        color: #ff6b08;
+    }
+
+    &__card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transform: scale(1);
+        transition: transform 500ms;
+    }
+
+    &__poster {
+        overflow: hidden;
+    }
+
+    &__img {
+        display: block;
+        width: 100%;
+        height: 402px;
+
+        @media screen and (min-width: 768px) {
+            height: 455px;
+            width: 336px;
+        }
+
+        @media screen and (min-width: 1024px) {
+            height: 449px;
+            width: 309px;
+        }
+    }
+
+    &__description {
+        margin-top: 10px;
+    }
+
+    &__genre {
+        align-items: center;
+    }
+
+    &__rating {
+        margin-left: 10px;
+        background: #ff6b01;
+        border-radius: 5px;
+        width: 36px;
+        height: 16px;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 1.17;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-transform: uppercase;
+
+        color: #ffffff;
+    }
+}
+
+.gallery-list__card:hover,
+:focus {
+    cursor: pointer;
+    transform: scale(0.98);
+}
