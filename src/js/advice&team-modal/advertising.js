@@ -25,11 +25,13 @@ const addBlockBtn = document.querySelector('.add-block__btn');
 
 (function deadLineTimer() {
   const startTime = Date.now();
+  const finishTime = 11;
   let diferentTimeSec = 0;
 
   const intervalId = setInterval(() => {
-    if (diferentTimeSec >= 10) {
+    if (diferentTimeSec === 1) {
       clearInterval(intervalId);
+
       addBlockTime.classList.add('is-hidden');
       addBlockBtn.classList.remove('is-hidden');
 
@@ -39,7 +41,7 @@ const addBlockBtn = document.querySelector('.add-block__btn');
     const currentTime = Date.now();
     const diferentTimeMs = currentTime - startTime;
 
-    diferentTimeSec = (diferentTimeMs / 1000).toFixed();
+    diferentTimeSec = Number(finishTime - (diferentTimeMs / 1000).toFixed());
     addBlockTime.textContent = diferentTimeSec;
   }, 1000);
 })();
