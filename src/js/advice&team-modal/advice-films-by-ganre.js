@@ -1,17 +1,18 @@
-import searchFilmByGanre from './search-film-by-ganre';
-import randomFilm from './random-film';
+// import searchFilmByGanre from './search-film-by-ganre';
+// import randomFilm from './random-film';
 
-const sumbitForm = document.querySelector('.advice-form');
-const selectEl = document.querySelector('select[id="ganre"]');
+// const adviceListEl = document.querySelector('.advice-list');
 
-sumbitForm.addEventListener('submit', adviceFilmByGanre);
+// adviceListEl.addEventListener('click', adviceFilmByGanre);
 
-async function adviceFilmByGanre(e) {
-  e.preventDefault();
+// async function adviceFilmByGanre(e) {
+//   if (e.target.nodeName !== 'BUTTON') {
+//     return;
+//   }
 
-  const ganreId = selectEl.value;
-  const filmsrespone = await searchFilmByGanre(ganreId);
-  const adviceFilmsArray = await filmsrespone.data.results;
-  const oneRandomFilm = await randomFilm(adviceFilmsArray);
-  await console.log(oneRandomFilm);
-}
+//   const ganreId = e.target.dataset.id;
+//   const filmsrespone = await searchFilmByGanre(ganreId);
+//   const adviceFilmsArray = await filmsrespone.data.results;
+//   const oneRandomFilm = await randomFilm(adviceFilmsArray);
+//   await console.log(oneRandomFilm);
+// }
