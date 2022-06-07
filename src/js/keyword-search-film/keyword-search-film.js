@@ -1,7 +1,7 @@
-console.log('hello this is keyword-search-film');
+
 import KeywordSearchFilmServise from './servise-keyword-search-film';
 import cardTpl from '../../hbs-templates/film-card-home-page.hbs';
-import {genreIds} from '../ganre-ids';
+import {genreIds} from '../popular-movies/ganre-ids';
 
 
 
@@ -44,7 +44,7 @@ async function getFilm(searchQuery) {
 
 function renderCards(cards) {
     const marcup = cards.map(card => cardTpl(card)).join('');
-     refs.galleryList.insertAdjacentHTML('beforeend', marcup)
+    refs.galleryList.insertAdjacentHTML('beforeend', marcup)
 }
 
 function standartindArrayFilms(films) {
