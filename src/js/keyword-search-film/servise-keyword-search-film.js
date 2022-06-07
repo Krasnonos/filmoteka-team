@@ -18,7 +18,7 @@ export default class KeywordSearchFilmServise {
         try {
             const response = await axios.get(url);
             
-            this.page += 1;
+            // this.page += 1;
             
             return response;
         ;
@@ -28,9 +28,9 @@ export default class KeywordSearchFilmServise {
         }
     };
 
-    resetPage() {
-        this.page = 1;
-    }
+    // resetPage() {
+    //     this.page = 1;
+    // }
 
     get query() {
         return this.searchQuery;
