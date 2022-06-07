@@ -1,3 +1,4 @@
+// import './scroll-advice-list';
 // import { genreIds } from './ganre-ids-for-advice';
 
 // const adviceListEl = document.querySelector('.advice-list');
