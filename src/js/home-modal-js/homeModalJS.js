@@ -66,8 +66,8 @@ function homeModalJS() {
     });
   });
 
-  // refs.bodyRef.classList.add('modal-open');
-  refs.modalBackdropRef.classList.add('is-hidden');
+  refs.bodyRef.classList.add('modal-open');
+  // refs.modalBackdropRef.classList.add('is-hidden');
 }
 
 homeModalJS();
