@@ -7,7 +7,7 @@ export function createMarkup(results) {
 
   results.forEach(res => {
     const data = {
-      id: res.id,
+      filmId: res.id,
       title: res.name || res.title,
       urlImg: res.poster_path,
       relisYer: (res.release_date || res.first_air_date).slice(0, 4),
