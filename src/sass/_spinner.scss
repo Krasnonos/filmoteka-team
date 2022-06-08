@@ -1,0 +1,71 @@
+$size: 20px;
+$color: black;
+$parentWidth: 240px;
+$margin: 10px;
+$speed: 1.5s;
+$speedDiff: 0.05s;
+
+.backdrop-spinner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(85, 85, 85);
+  transition-property: opacity;
+  transition-duration: 250ms;
+  z-index: 40;
+}
+.loader {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: $parentWidth;
+  height: $size;
+  & div {
+    position: absolute;
+    top: 0;
+    width: $size;
+    height: $size;
+    border-radius: 50%;
+    background: $color;
+  }
+  & .circle-1 {
+    left: calc($size * 2 + $margin * 2);
+    animation: move-1 $speed infinite ease-in-out alternate;
+  }
+  & .circle-2 {
+    left: calc($size + $margin);
+    animation: move-2 $speed infinite ease-in-out $speedDiff alternate;
+  }
+  & .circle-3 {
+    left: 0;
+    animation: move-3 $speed infinite ease-in-out calc($speedDiff * 2) alternate;
+  }
+}
+
+@keyframes move-1 {
+  from {
+    left: calc($size * 2 + $margin * 2);
+  }
+  to {
+    left: calc($parentWidth - $size);
+  }
+}
+@keyframes move-2 {
+  from {
+    left: calc($size + $margin);
+  }
+  to {
+    left: calc($parentWidth - $size * 2 - $margin);
+  }
+}
+@keyframes move-3 {
+  from {
+    left: 0;
+  }
+  to {
+    left: calc($parentWidth - $size * 3 - $margin * 2);
+  }
+}
