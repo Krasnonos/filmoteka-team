@@ -1,6 +1,6 @@
 export const genreIds = [
   {
-    id: 12,
+    id: 16,
     name: 'Adventure',
   },
   {
@@ -8,7 +8,7 @@ export const genreIds = [
     name: 'Fantasy',
   },
   {
-    id: 16,
+    id: 12,
     name: 'Animation',
   },
   {
