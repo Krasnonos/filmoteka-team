@@ -1,3 +1,4 @@
+import { spinnerOff } from '../spinner-js/spinner';
 import { getCardElement } from './getCardElement';
 import { getModalData } from './getModalData';
 import { showModal } from './showModal';
@@ -8,6 +9,7 @@ export function onDocumentClick(event) {
     const id = elementRef.dataset.filmid;
     getModalData(id).then(resp => {
       showModal(resp);
+      spinnerOff();
     });
   }
 }

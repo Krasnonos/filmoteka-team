@@ -7,3 +7,4 @@ import './js/popular-movies/index';
 import './js/advice&team-modal/advertising';
 import './js/home-modal-js/homeModalJS';
 import './js/keyword-search-film/index';
+import './js/spinner-js/spinner';
