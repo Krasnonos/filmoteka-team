@@ -4,6 +4,6 @@ import './js/advice&team-modal/open-close-team-modal';
 import './js/popular-movies/index';
 import './js/advice&team-modal/advertising';
 import { homeModalJS } from './home-modal-js/homeModalJS';
-import './js/keyword-search-film/keyword-search-film';
+import './js/keyword-search-film/index';
 
 homeModalJS();
