@@ -50,7 +50,7 @@ function clearLocalStorageAndFilmList(lockalStorageKey) {
 }
 
 // -----------------------------------------//
-// потрібно <button type="button" class="clear-btn">
+// потрібно <button type="button" class="clear-library-btn">
 //       clear list </button>
 // на кнопку queue поставити  data-key="queueKey"
 // на кнопку  watched поставити data-key="watchedKey" data-current="currentPage"
