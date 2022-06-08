@@ -1,6 +1,7 @@
 import searchFilmByGanre from './search-film-by-ganre';
 import randomFilm from './random-film';
-import modalFilmTemplate from '../../hbs-templates/modal-film.hbs';
+import { getModalData } from '../home-modal-js/getModalData';
+import { showModal } from '../home-modal-js/showModal';
 
 const adviceListEl = document.querySelector('.advice-list');
 const modalBackdrop = document.querySelector('.backdrop');
@@ -17,9 +18,9 @@ async function adviceFilmByGanre(e) {
     const filmsrespone = await searchFilmByGanre(ganreId);
     const adviceFilmsArray = filmsrespone.data.results;
     const oneRandomFilm = randomFilm(adviceFilmsArray);
-    console.log(oneRandomFilm);
-    modalBackdrop.innerHTML = modalFilmTemplate(oneRandomFilm);
-    modalBackdrop.classList.remove('is-hidden');
+    const randomFilmId = oneRandomFilm.id;
+    const filmInformation = await getModalData(randomFilmId);
+    showModal(filmInformation);
   } catch (erroe) {
     console.log(error);
   }
