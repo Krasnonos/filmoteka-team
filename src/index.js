@@ -8,4 +8,3 @@ import './js/advice&team-modal/advertising';
 import { homeModalJS } from './home-modal-js/homeModalJS';
 import './js/keyword-search-film/index';
 homeModalJS();
-import './js/keyword-search-film/keyword-search-film';

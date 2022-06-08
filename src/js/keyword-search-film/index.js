@@ -35,7 +35,6 @@ async function onSearchFilmSubmitForm (e) {
 function addAlert() {
     refs.text.style.display = 'block';
     refs.text.textContent = 'Search result not successful. Enter the correct movie name and';
-    refs.galleryList.innerHTML = '';
 }
 
 function onChangeInput(e) {
