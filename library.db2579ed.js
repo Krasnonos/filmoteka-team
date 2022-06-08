@@ -1,0 +1,2 @@
+const e=document.querySelector(".footer__btn"),t=document.querySelector(".modal__close-btn"),c=document.querySelector(".backdrop-team");function n(){c.classList.remove("is-hidden"),t.addEventListener("click",i),e.removeEventListener("click",n)}function i(){c.classList.add("is-hidden"),e.addEventListener("click",n),t.removeEventListener("click",i)}e.addEventListener("click",n);
+//# sourceMappingURL=library.db2579ed.js.map
