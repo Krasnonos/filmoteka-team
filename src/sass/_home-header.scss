@@ -382,4 +382,18 @@ input:checked+.slider:before {
 
 .slider.round:before {
     border-radius: 50%;
+
+    position: absolute;
+        top: 170px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.14;
+       
+    
+        color: #FF001B;
 }
