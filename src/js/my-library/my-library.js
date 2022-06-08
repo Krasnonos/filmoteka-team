@@ -1,64 +1,76 @@
-let libraryFilmList = document.querySelector('#js-libraryFilmList');
+import filmCardLibraryhbs from "../../hbs-templates/"
 
-function createLibraryCardFunc(imgPath, filmTitle, movieId, voteAverage) {
-  const listItem = document.createElement('li');
-  listItem.classList.add('main__filmListItem');
-  listItem.setAttribute('id', 'js-filmListItem');
+(`.galleryList`)
 
-  const img = document.createElement('img');
-  img.classList.add('main__filmListItemImg');
-  img.setAttribute('src', `https://image.tmdb.org/t/p/w500/${imgPath}`)
+const watchedBtn = document.querySelector(`#watched`);
+const queueBtn = document.querySelector(`#queue`);
+const galleryList = document.querySelector(`.gallery-List`);
+const watchedPlaceholder = document.querySelector('.js-watched-text');
+const queuePlaceholder = document.querySelector('.js-queue-text');
 
-  const title = document.createElement('h2');
-  title.classList.add('main__filmListItemTitle');
-  title.textContent = filmTitle;
+queueBtn.addEventListener('click', renderFilm);
+watchedBtn.addEventListener('click', renderFilm);
 
-  const voteAverageH3 = document.createElement('h3');
-  voteAverageH3.classList.add('main__filmVote');
-  voteAverageH3.textContent = voteAverage;
-
-  listItem.append(img, title, voteAverageH3);
-
-  listItem.addEventListener('click', () => activeDetailsPage(movieId, true));
-  return listItem;
-};
-
-function drawQueueFilmList() {
-  let fragment = document.createDocumentFragment();
-  let queueFilmListFromLS = localStorage.getItem('filmsQueue');
-  if (queueFilmListFromLS !== null && JSON.parse(queueFilmListFromLS).length !== 0) {
-    JSON.parse(queueFilmListFromLS).forEach(movie => {
-      fragment.append(createLibraryCardFunc(movie.backdrop_path, movie.title, movie.id, movie.vote_average))
-    })
-    libraryFilmList.innerHTML = "";
-    libraryFilmList.append(fragment);
-  } else if (queueFilmListFromLS === null || JSON.parse(queueFilmListFromLS).length === 0) {
-    libraryFilmList.innerHTML = "";
-    const listItem = document.createElement('li');
-    listItem.classList.add('main__noFilmsInList');
-    listItem.textContent = "You do not have to queue movies to watch. Add them."
-    libraryFilmList.append(listItem);
+async function renderFilm(e) {
+  const lockalStorageKey = e.currentTarget.dataset.key;
+  const filmsArrayJson = localstorage.getitem(lockalStorageKey);
+  const filmsArray = JSON.parse(filmsArrayJson)
+  if (filmsArray.length === 0) {
+       return
   }
-  queueListButton.classList.add('main__navigationLibraryButtonActive');
-  watchedListButton.classList.remove('main__navigationLibraryButtonActive');
+
+  const filmsData = await filmsArray.map((id) => axios(`https://api.themoviedb.org/3/movie/${id}?api_key=c8ef48bae82b60cf66a4f0e6e3dd153e&language=en-US`));
+  const filmCardArray = filmsData.map((film) => filmCardLibraryhbs(film)).join('')
+
+  galleryList.insertAdjacentHTML('beforeend', filmCardArray)
+
+
+  if (e.currentTarget.getAttribute(`id`) === `watched`) {
+    watchedPlaceholder.style.display = 'none';
+} else {queuePlaceholder.style.display = 'none';}
 }
 
-function drawWatchedFilmList() {
-  let fragment = document.createDocumentFragment();
-  let watchedFilmListFromLS = localStorage.getItem('filmsWatched');
-  if (watchedFilmListFromLS !== null && JSON.parse(watchedFilmListFromLS).length !== 0) {
-    JSON.parse(watchedFilmListFromLS).forEach(movie => {
-      fragment.append(createLibraryCardFunc(movie.backdrop_path, movie.title, movie.id, movie.vote_average))
-    });
-    libraryFilmList.innerHTML = "";
-    libraryFilmList.append(fragment);
-  } else if (watchedFilmListFromLS === null || JSON.parse(watchedFilmListFromLS).length === 0) {
-    libraryFilmList.innerHTML = "";
-    const listItem = document.createElement('li');
-    listItem.classList.add('main__noFilmsInList');
-    listItem.textContent = "You do not have watched movies. Add them."
-    libraryFilmList.append(listItem);
-  }
-  queueListButton.classList.remove('main__navigationLibraryButtonActive');
-  watchedListButton.classList.add('main__navigationLibraryButtonActive');
-}
+
+
+
+
+
+// function drawQueueFilmList() {
+//   let fragment = document.createDocumentFragment();
+//   let queueFilmListFromLS = localStorage.getItem('filmsQueue');
+//   if (queueFilmListFromLS !== null && JSON.parse(queueFilmListFromLS).length !== 0) {
+//     JSON.parse(queueFilmListFromLS).forEach(movie => {
+//       fragment.append(createLibraryCardFunc(movie.backdrop_path, movie.title, movie.id, movie.vote_average))
+//     })
+//     libraryFilmList.innerHTML = "";
+//     libraryFilmList.append(fragment);
+//   } else if (queueFilmListFromLS === null || JSON.parse(queueFilmListFromLS).length === 0) {
+//     libraryFilmList.innerHTML = "";
+//     const listItem = document.createElement('li');
+//     listItem.classList.add('main__noFilmsInList');
+//     listItem.textContent = "You do not have to queue movies to watch. Add them."
+//     libraryFilmList.append(listItem);
+//   }
+//   queueListButton.classList.add('main__navigationLibraryButtonActive');
+//   watchedListButton.classList.remove('main__navigationLibraryButtonActive');
+// }
+
+// function drawWatchedFilmList() {
+//   let fragment = document.createDocumentFragment();
+//   let watchedFilmListFromLS = localStorage.getItem('filmsWatched');
+//   if (watchedFilmListFromLS !== null && JSON.parse(watchedFilmListFromLS).length !== 0) {
+//     JSON.parse(watchedFilmListFromLS).forEach(movie => {
+//       fragment.append(createLibraryCardFunc(movie.backdrop_path, movie.title, movie.id, movie.vote_average))
+//     });
+//     libraryFilmList.innerHTML = "";
+//     libraryFilmList.append(fragment);
+//   } else if (watchedFilmListFromLS === null || JSON.parse(watchedFilmListFromLS).length === 0) {
+//     libraryFilmList.innerHTML = "";
+//     const listItem = document.createElement('li');
+//     listItem.classList.add('main__noFilmsInList');
+//     listItem.textContent = "You do not have watched movies. Add them."
+//     libraryFilmList.append(listItem);
+//   }
+//   queueListButton.classList.remove('main__navigationLibraryButtonActive');
+//   watchedListButton.classList.add('main__navigationLibraryButtonActive');
+// }
