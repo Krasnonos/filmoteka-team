@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { spinnerOff, spinnerOn } from '../spinner-js/spinner';
 
 const KEY = 'c8ef48bae82b60cf66a4f0e6e3dd153e';
 const BASE_URL = `https://api.themoviedb.org/3/movie/`;
@@ -32,8 +33,11 @@ export async function getModalData(id) {
     https: config1,
   });
 
+  spinnerOn();
+
   const config = await fetchSeachRequest(searchInstanceConfig);
   const movie = await fetchSeachRequest(searchInstance);
+
   // console.log(config);
   // console.log(movie.data);
   const posterImageSRC =

@@ -5,4 +5,6 @@ export const refs = {
     '.modal__box .modal__close-button'
   ),
   modalBoxRef: document.querySelector('.modal__box'),
+
+  backdropSpinnerRef: document.querySelector('.backdrop-spinner'),
 };
