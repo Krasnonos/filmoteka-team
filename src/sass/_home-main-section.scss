@@ -42,7 +42,7 @@
         font-weight: 500;
         font-size: 12px;
         line-height: 1.33;
-        color: #000000;
+        color: $third-text-color;
     }
 
     &__genre {
@@ -51,7 +51,7 @@
         font-weight: 500;
         font-size: 12px;
         line-height: 1.33;
-        color: #ff6b08;
+        color: $accent-color;
     }
 
     &__card {
@@ -93,7 +93,7 @@
 
     &__rating {
         margin-left: 10px;
-        background: #ff6b01;
+        background: $accent-color;
         border-radius: 5px;
         width: 36px;
         height: 16px;
