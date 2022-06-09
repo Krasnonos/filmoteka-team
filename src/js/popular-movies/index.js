@@ -11,7 +11,7 @@ async function ready() {
   } catch (error) {
     refs.galleryListEl.insertAdjacentHTML(
       'afterbegin',
-      'No connection to server!!!'
+      '<li class="gallery-list__error">No connection to server!!!</li>'
     );
   }
 }
