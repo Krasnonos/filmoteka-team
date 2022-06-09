@@ -11,7 +11,7 @@ export function createMarkup(results) {
       title: res.name || res.title,
       urlImg: res.poster_path,
       relisYer: (res.release_date || res.first_air_date).slice(0, 4),
-      ganres: res.genre_ids.map(id => convertGanres(genreIds, id)),
+      ganres: res.genre_ids.map(id => convertGanres(genreIds, id)).join(', '),
     };
     markup += hbs(data);
   });
