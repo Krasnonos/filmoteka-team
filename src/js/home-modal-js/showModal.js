@@ -9,8 +9,8 @@ export function showModal(data) {
   refs.modalBackdropRef.classList.remove('is-hidden');
 
   //-----------------Local Storage---------------------------
-  const btnWatched = document.querySelector('#button-watched');
-  const btnQueue = document.querySelector('#button-queue');
+  const btnWatched = document.querySelector('.add-to-watched-button');
+  const btnQueue = document.querySelector('.add-to-queue-button');
 
   btnWatched.addEventListener('click', onBtnWatchedClick);
   btnQueue.addEventListener('click', onBtnQueueClick);
