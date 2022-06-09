@@ -8,10 +8,12 @@ export function createMarkup(results) {
   results.forEach(res => {
     const data = {
       filmId: res.id,
-      title: res.name || res.title,
+      title: res.name || res.title || 'XXXX',
       urlImg: res.poster_path,
-      relisYer: (res.release_date || res.first_air_date).slice(0, 4),
-      ganres: res.genre_ids.map(id => convertGanres(genreIds, id)).join(', '),
+      relisYer: (res.release_date || res.first_air_date || 'XXXX').slice(0, 4),
+      ganres:
+        res.genre_ids.map(id => convertGanres(genreIds, id)).join(', ') ||
+        'XXXX',
     };
     markup += hbs(data);
   });
