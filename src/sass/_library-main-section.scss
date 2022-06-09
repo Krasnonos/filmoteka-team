@@ -27,3 +27,36 @@
         font-size: 18px;
     }
 }
+
+.remove-film-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    display: flex;
+
+    align-items: center;
+
+    // min-width: 35px;
+    // min-height: 35px;
+    // padding: 5;
+    // margin-left: auto;
+
+    fill: $main-text-color;
+    // background-color: $main-bg-color;
+    // border: 1px solid $third-text-color;
+    border-radius: 5px;
+
+    &:hover,
+    &:focus {
+        color: $main-text-color;
+        background-color: $main-text-color;
+        border: 1px solid $accent-color;
+    }
+}
+
+.remove-film-svg {
+    .remove-film-btn:focus &,
+    .remove-film-btn:hover & {
+        fill: $accent-color;
+    }
+}

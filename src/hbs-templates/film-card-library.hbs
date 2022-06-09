@@ -1,5 +1,11 @@
 <li class="gallery-list__item">
     <div data-filmId="{{filmId}}" class="gallery-list__card">
+        <button type="button" class="remove-film-btn">
+            <svg class="remove-film-svg" width="26" height="30">
+                <use href="./images/icons.svg#icon-clear"></use>
+            </svg>
+        </button>
+
         <div class="gallery-list__poster">
             <img class="gallery-list__img" src="https://image.tmdb.org/t/p/w300{{urlImg}}" alt="{{title}}" loading="lazy" />
         </div>

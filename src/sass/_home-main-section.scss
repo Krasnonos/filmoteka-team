@@ -45,6 +45,15 @@
         color: $third-text-color;
     }
 
+    &__text {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 1.33;
+        color: $accent-color;
+    }
+
     &__genre {
         font-family: Roboto;
         font-style: normal;
@@ -55,6 +64,7 @@
     }
 
     &__card {
+        position: relative;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -85,6 +95,11 @@
 
     &__description {
         margin-top: 10px;
+    }
+
+    &__statics {
+        display: flex;
+        align-items: center;
     }
 
     &__genre {
