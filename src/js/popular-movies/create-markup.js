@@ -12,7 +12,7 @@ export function createMarkup(results) {
       urlImg: res.poster_path,
       relisYer: (res.release_date || res.first_air_date || 'XXXX').slice(0, 4),
       ganres:
-        res.genre_ids.map(id => convertGanres(genreIds, id)).join(', ') ||
+        res.genre_ids?.map(id => convertGanres(genreIds, id)).join(', ') ||
         'XXXX',
     };
     markup += hbs(data);
