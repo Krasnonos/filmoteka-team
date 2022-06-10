@@ -105,6 +105,8 @@
 .modal__img-thumb {
   width: 30px;
   height: 30px;
+  overflow: hidden;
+  border-radius: 50%;
   transition: transform 400ms linear;
 
   &:hover,
