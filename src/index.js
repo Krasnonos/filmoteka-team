@@ -9,3 +9,4 @@ import './js/home-modal-js/homeModalJS';
 import './js/keyword-search-film/index';
 import './js/spinner-js/spinner';
 import './js/home-modal-js/closingModal';
+import './js/local-storage/local-storage';
