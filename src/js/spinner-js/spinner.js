@@ -7,9 +7,7 @@ window.onload = function () {
 };
 
 export function spinnerOff() {
-  setTimeout(function () {
-    refs.backdropSpinnerRef.classList.add('is-hidden');
-  }, 1000);
+  refs.backdropSpinnerRef.classList.add('is-hidden');
 }
 
 export function spinnerOn() {
