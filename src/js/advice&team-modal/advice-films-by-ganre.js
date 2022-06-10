@@ -3,6 +3,7 @@ import randomFilm from './random-film';
 import { getModalData } from '../home-modal-js/getModalData';
 import { showModal } from '../home-modal-js/showModal';
 import { spinnerOff } from '../spinner-js/spinner';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const adviceListEl = document.querySelector('.advice-list');
 const modalBackdrop = document.querySelector('.backdrop');
@@ -24,6 +25,6 @@ async function adviceFilmByGanre(e) {
     showModal(filmInformation);
     spinnerOff();
   } catch (erroe) {
-    console.log(error);
+    Notify.info('We are sorry but this genre is empty.');
   }
 }

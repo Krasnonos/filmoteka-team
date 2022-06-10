@@ -1,6 +1,5 @@
 const addImageArray = [
   'https://re-media.plektan.com/img/prop/40/7f/407f503405e4ad187970a5873d2756a0.jpg',
-  'https://ochepyatki.ru/upfiles/albums/1907/f_46550.jpg',
   'https://highload.today/wp-content/uploads/2022/02/Kotiku-prihoditsya-iskat-rabotu.-Ne-nado-tak.jpg',
 ];
 
