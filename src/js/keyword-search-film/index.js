@@ -3,6 +3,7 @@ import { getFilm } from "./getFilm";
 import { standartindArrayFilms } from "./standart-array-films";
 import { renderCards } from "./render-cards";
 import { refs } from './refs-el';
+import { setLocalStoragePopular } from '../popular-movies/popular-local-storage';
 
 
 refs.form.addEventListener('submit', onSearchFilmSubmitForm)
@@ -26,6 +27,8 @@ async function onSearchFilmSubmitForm (e) {
         return
     }
     
+    setLocalStoragePopular(arrayFilms);
+
     const validFilmsArray = standartindArrayFilms(arrayFilms);
     
     renderCards(validFilmsArray);
