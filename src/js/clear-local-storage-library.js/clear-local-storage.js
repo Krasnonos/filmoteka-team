@@ -1,7 +1,8 @@
 // -------------------
 const clearBtn = document.querySelector('.clear-library-btn');
 const libraryList = document.querySelector('.js-gallery-list');
-const libreryPlaceholder = document.querySelector('.library-empty');
+const watchedPlaceholder = document.querySelector('.js-watched-text');
+const queuePlaceholder = document.querySelector('.js-queue-text');
 
 clearBtn.addEventListener('click', findLocalStorageKey);
 
@@ -11,12 +12,17 @@ function findLocalStorageKey(e) {
   );
   const lockalStorageKey = currentPage.dataset.key;
   clearLocalStorageAndFilmList(lockalStorageKey);
+
+  if (currentPage.id === 'watched') {
+    watchedPlaceholder.classList.remove('is-hidden');
+  } else {
+    queuePlaceholder.classList.remove('is-hidden');
+  }
 }
 
 function clearLocalStorageAndFilmList(lockalStorageKey) {
   localStorage.removeItem(lockalStorageKey);
   libraryList.innerHTML = '';
-  libreryPlaceholder.classList.remove('is-hidden');
 }
 
 // -----------------------------------------//
