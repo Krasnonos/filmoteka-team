@@ -5,6 +5,7 @@ import { setLocalStoragePopular } from '../popular-movies/popular-local-storage'
 // document.addEventListener('DOMContentLoaded', ready);
 const paginationList = document.querySelector('.pagination');
 const cardList = document.querySelector('.gallery-list');
+
 console.log(paginationList);
 let currentPage;
 async function ready(page = 1) {
@@ -27,6 +28,8 @@ async function ready(page = 1) {
 }
 ready();
 function renderPagination (page, totalPage) {
+  // const linkArrowLeftRef = document.querySelector('.pagination__arrow--left');
+  // const linkArrowRightRef = document.querySelector('.pagination__arrow--right');
   // totalPage = 20;
   currentPage = page;
 let paginationMarkup = '';
@@ -34,6 +37,9 @@ let beforeTwoPage = page - 2;
 let beforePage = page - 1;
 let afterTwoPage = page + 2;
 let afterPage = page + 1;
+// paginationNumberListRef.addEventListener('click', ready);
+//   linkArrowRightRef.addEventListener('click', ready);
+//   linkArrowLeftRef.addEventListener('click', ready);
 
 if (page > 1) {
   paginationMarkup += `<li class="pagination__arrow pagination__arrow--left materials-icons">&larr;</li>`
@@ -73,15 +79,12 @@ if (page < totalPage) {
   paginationMarkup += `<li class='pagination__arrow pagination__arrow--right materials-icons'>&rarr;</li>`;
 }
 
-
-// if (page > 3) {
-//   paginationMarkup += `<li>...</li>`;
-// }
-// li.classList.add('pagination__number');
 paginationList.innerHTML = paginationMarkup;
  
 paginationList.addEventListener('click', onPagination);
-
+// paginationNumberListRef.addEventListener('click', onPagination);
+  // linkArrowRightRef.addEventListener('click', onPagination);
+  // linkArrowLeftRef.addEventListener('click', onPagination);
 
 }
 
