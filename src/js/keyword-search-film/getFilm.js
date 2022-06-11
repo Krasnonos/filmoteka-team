@@ -1,6 +1,7 @@
 
 import KeywordSearchFilmServise from './servise-keyword-search-film';
-
+// import paginationTmp from '../pagination/pagination.hbs';
+// import { pagination } from './pagination';
 
 
 export async function getFilm(searchQuery) {
@@ -14,5 +15,9 @@ export async function getFilm(searchQuery) {
     const arrayFilms = res.data.results;
 
     return arrayFilms;
+
+    
 }
 
+// renderMarkup(paginationRef, paginationTmp());
+// pagination();
