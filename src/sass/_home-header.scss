@@ -312,26 +312,26 @@
 }
 
 .home-header_line_message {
-    // @media screen and (min-width:1px) and (max-width: 768px) {
-    //     // display: none;
-    //     display: flex;
-    //     justify-content: center;
-    //     align-items: center;
-    // }
+    @media screen and (min-width:1px) and (max-width: 768px) {
+        // display: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-    // @media screen and (min-width: 767px) {
-    //     // display: none;
-    //     display: flex;
-    //     justify-content: center;
-    //     align-items: center;
-    // }
+    @media screen and (min-width: 767px) {
+        // display: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-    // @media screen and (min-width: 1200px) {
-    //     // display: none;
-    //     display: flex;
-    //     justify-content: center;
-    //     align-items: center;
-    // }
+    @media screen and (min-width: 1200px) {
+        // display: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
     display: none;
 }
@@ -350,17 +350,17 @@
 
     @media screen and (min-width: 1200px) {
         width: 80px;
-        height: 135px;
+        height: 35px;
     }
 
     @media screen and (min-width: 768px) and (max-width:1199px) {
         width: 80px;
-        height: 135px;
+        height: 35px;
     }
 
     @media screen and (min-width: 1px) and (max-width: 768px) {
         width: 70px;
-        height: 155px;
+        height: 55px;
     }
 }
 
@@ -370,17 +370,17 @@
 
 .slide {
     @media screen and (min-width: 1200px) {
-        top: 110px;
+        top: 10px;
         left: 20px;
     }
 
     @media screen and (min-width: 768px) and (max-width:1199px) {
-        top: 110px;
+        top: 10px;
         left: 20px;
     }
 
     @media screen and (min-width: 1px) and (max-width: 767px) {
-        top: 130px;
+        top: 30px;
         left: 15px;
     }
 
