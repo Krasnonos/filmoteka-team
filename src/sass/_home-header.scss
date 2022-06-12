@@ -305,8 +305,7 @@
 .home-header_line {
     // display: none;
     margin-top: 80px;
-    display: none;
-
+    color: transparent;
 }
 
 .home-header_line_message {
@@ -331,7 +330,7 @@
         align-items: center;
     }
 
-    display: none;
+    display: hidden;
 }
 
 // ---------------------------------------------//
