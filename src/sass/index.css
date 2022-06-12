@@ -427,7 +427,140 @@ img {
 }
 
 .header_container_line {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+}
+
+@media screen and (min-width: 1px) and (max-width: 768px) {
+  .home-header_line_message {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+@media screen and (min-width: 767px) {
+  .home-header_line_message {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .home-header_line_message {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+.theme-switcher-wrapper {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.theme-switch {
+  position: relative;
+  display: inline-block;
+}
+
+@media screen and (min-width: 1200px) {
+  .theme-switch {
+    width: 80px;
+    height: 135px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .theme-switch {
+    width: 80px;
+    height: 135px;
+  }
+}
+
+@media screen and (min-width: 1px) and (max-width: 768px) {
+  .theme-switch {
+    width: 70px;
+    height: 155px;
+  }
+}
+
+.theme-switch input {
   display: none;
+}
+
+.slide {
+  background-color: #a88e71;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  -webkit-transition: 0.9s;
+  transition: 0.9s;
+}
+
+@media screen and (min-width: 1200px) {
+  .slide {
+    top: 110px;
+    left: 20px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .slide {
+    top: 110px;
+    left: 20px;
+  }
+}
+
+@media screen and (min-width: 1px) and (max-width: 767px) {
+  .slide {
+    top: 130px;
+    left: 15px;
+  }
+}
+
+.slide:before {
+  background-color: #29343d;
+  bottom: 2.5px;
+  content: "";
+  height: 20px;
+  left: 5px;
+  position: absolute;
+  -webkit-transition: 0.9s;
+  transition: 0.9s;
+  width: 20px;
+}
+
+input:checked + .slide {
+  background-color: #ff6b08;
+}
+
+input:checked + .slide:before {
+  -webkit-transform: translateX(30px);
+          transform: translateX(30px);
+}
+
+.slide.round {
+  border-radius: 80px;
+}
+
+.slide.round:before {
+  border-radius: 50%;
 }
 
 .library-header {
