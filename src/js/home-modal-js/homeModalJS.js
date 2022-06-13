@@ -1,7 +1,13 @@
 import { refs } from '../refs';
+import { getBaseURLPath } from './getBaseURLPath';
 import { onCloseModal } from './onCloseModal';
 import { onDocumentClick } from './onDocumentClick';
 
-document.addEventListener('click', onDocumentClick);
+export let baseURLPath = '';
 
-refs.closeModalButtonRef.addEventListener('click', onCloseModal);
+getBaseURLPath().then(resp => {
+  baseURLPath = resp;
+
+  document.addEventListener('click', onDocumentClick);
+  refs.closeModalButtonRef.addEventListener('click', onCloseModal);
+});

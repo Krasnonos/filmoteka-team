@@ -23,7 +23,6 @@ function delateQueueAtribbute(e) {
   }
   e.target.setAttribute('data-current', 'currentPage');
   queueBtn.removeAttribute('data-current');
-
   queuePlaceholder.style.display = 'none';
   watchedPlaceholder.style.display = 'block';
 }

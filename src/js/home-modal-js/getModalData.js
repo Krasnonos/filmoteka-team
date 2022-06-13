@@ -38,8 +38,6 @@ export async function getModalData(id) {
   const config = await fetchSeachRequest(searchInstanceConfig);
   const movie = await fetchSeachRequest(searchInstance);
 
-  // console.log(config);
-  // console.log(movie.data);
   const posterImageSRC =
     config.data.images.secure_base_url +
     config.data.images.poster_sizes[3] +

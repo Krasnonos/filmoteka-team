@@ -5,6 +5,7 @@
 
   body.modal-open {
     overflow: hidden;
+    overflow-y: hidden;
   }
 
   .is-hidden.backdrop {
@@ -23,7 +24,7 @@
     width: 100%;
     height: 100%;
     font-family: 'Roboto';
-    color: #000;
+    color: $third-text-color;
     background: rgba(0, 0, 0, 0.2);
     transition-property: opacity;
     transition-duration: 250ms;
@@ -34,36 +35,22 @@
     top: 50%;
     left: 50%;
     padding-top: 15px;
+    padding-bottom: 5px;
     transform: translate(-52%, -50%);
     width: 280px;
     z-index: 100;
   }
 
-  .modal__box::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #fff;
-    border: 4px solid $accent-color;
-    z-index: 12;
-
-    // -------------------Аnimate the border ------------------
-    // filter: url(#wavy);
-  }
-
   .modal {
     width: 280px;
     max-height: 85vh;
-    padding: 33px 20px 40px 20px;
-    background: transparent;
+    padding: 33px 20px 35px 20px;
+    background-color: transparent;
     overflow-y: scroll;
     transition-property: scale, transform, opacity;
     transition-duration: 300ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 15;
+    z-index: 105;
     // overflow: auto;
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -74,6 +61,19 @@
     }
   }
 
+  .modal__box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $main-bg-color;
+    border: 4px solid $accent-color;
+    z-index: 103;
+    // -------------------Аnimate the border ------------------
+    filter: url(#wavy);
+  }
   .modal__close-button {
     position: absolute;
     display: flex;
@@ -86,14 +86,7 @@
     background-color: transparent;
     cursor: pointer;
     fill: $third-text-color;
-    transition-property: color;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 16;
-    &:hover,
-    &:focus {
-      color: $accent-color;
-    }
+    z-index: 110;
   }
 
   .modal__icon-close {
@@ -105,7 +98,13 @@
     fill: currentColor;
     width: 30px;
     height: 30px;
-    // z-index: 100;
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    &:hover,
+    &:focus {
+      color: $accent-color;
+    }
   }
 
   .modal__poster {
@@ -138,7 +137,7 @@
       }
     }
     & .col1 {
-      color: #8c8c8c;
+      color: $fourth-text-color;
     }
     & .cell-div {
       display: flex;
@@ -150,14 +149,14 @@
       & .col2-vote {
         background-color: $accent-color;
         border-radius: 5px;
-        color: #fff;
+        color: $main-text-color;
         width: 36px;
         margin-right: 3px;
       }
       & .col2-votes {
-        background-color: #f7f7f7;
+        background-color: $second-bg-color;
         border-radius: 5px;
-        color: #000;
+        color: $third-text-color;
         width: 36px;
         margin-left: 3px;
       }
@@ -192,11 +191,11 @@
     font-weight: 500;
     font-size: 12px;
     line-height: 1.33;
-    background-color: #fff;
-    border: #000000 solid 1px;
+    background-color: $main-text-color;
+    border: $third-text-color solid 1px;
     transition-property: color, background-color;
     transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    // transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
     &:hover {
       background-color: $accent-color;
@@ -210,6 +209,6 @@
   }
 
   .show-modal-button {
-    border: #000000 solid 1px;
+    border: $third-text-color solid 1px;
   }
 }
