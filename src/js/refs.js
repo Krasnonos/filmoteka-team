@@ -7,4 +7,6 @@ export const refs = {
   modalBoxRef: document.querySelector('.modal__box'),
 
   backdropSpinnerRef: document.querySelector('.backdrop-spinner'),
+  
 };
+// export const paginationRef = document.querySelector('.pagination');
