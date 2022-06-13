@@ -7,4 +7,5 @@ export const refs = {
   modalBoxRef: document.querySelector('.modal__box'),
 
   backdropSpinnerRef: document.querySelector('.backdrop-spinner'),
+  
 };
