@@ -41,9 +41,13 @@ function removeCardFromLocalStorage(filmIdToRemove, localStorageKey) {
 }
 
 function chekLoacalStorageAndShowPlaceholder(key) {
-  if (localStorage.getItem(key).length === 0) {
+  if (JSON.parse(localStorage.getItem(key)).length !== 0) {
+    console.log(localStorage.getItem(key));
     return;
   }
+
+  localStorage.removeItem(key);
+
   if (key === `watched-films`) {
     watchedPlaceholder.style.display = 'block';
   } else {
