@@ -20,6 +20,7 @@ async function ready(page = 1) {
     console.log(response);
     renderPagination(currentPage, totalPage);
   } catch (error) {
+    console.log(error);
     refs.galleryListEl.insertAdjacentHTML(
       'afterbegin',
       '<li class="gallery-list__error">No connection to server!!!</li>'
@@ -42,7 +43,7 @@ if (page > 2) {
   paginationMarkup += `<li class="pagination__number">1</li>`;
 }
 if (page > 4) {
-  paginationMarkup += `<li class="pagination__number ">...</li>`;
+  paginationMarkup += `<li class="pagination__number points-none">...</li>`;
 }
 
 if (page > 3) {
@@ -63,9 +64,9 @@ paginationMarkup += `<li class="pagination__number">${afterTwoPage}</li>`;
 if (page <= totalPage - 1) {
   
   if (page < totalPage - 3) {
-  paginationMarkup += `<li class="pagination__number">...</li>`
+  paginationMarkup += `<li class="pagination__number points-none">...</li>`
   }
-  paginationMarkup += `<li class="pagination__number">${totalPage}</li>`
+  paginationMarkup += `<li class="pagination__number points-none">${totalPage}</li>`
 }
 
 
@@ -79,19 +80,21 @@ paginationList.addEventListener('click', onPagination);
 
 
 }
-
+console.log('&larr;');
+console.log('&rarr;');
 
 function onPagination (e) {
+  e.preventDefault();
   if (e.target.nodeName !== `LI` ) {
     return;
   }
  const target = e.target.textContent;
-
+ window.scrollTo({ top: 240, behavior: 'smooth' });
 switch ( target) {
- case  '«': 
+ case  '←': 
 ready(currentPage - 1);
 break
-case  '»': 
+case  '→': 
 ready(currentPage + 1);
 break
 
