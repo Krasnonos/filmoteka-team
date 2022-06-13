@@ -3,7 +3,8 @@ import { getFilm } from "./getFilm";
 import { standartindArrayFilms } from "./standart-array-films";
 import { renderCards } from "./render-cards";
 import { refs } from './refs-el';
-import { setLocalStoragePopular } from '../popular-movies/popular-local-storage';
+import { spinnerOn, spinnerOff } from '../spinner-js/spinner';
+import { setResultData } from "../popular-movies/data-result";
 
 
 refs.form.addEventListener('submit', onSearchFilmSubmitForm)
@@ -20,14 +21,18 @@ async function onSearchFilmSubmitForm (e) {
         return
     }
 
+    spinnerOn();
+
     const arrayFilms = await getFilm(inputValue);
+
+    spinnerOff();
 
     if (arrayFilms.length === 0) {        
         addAlert();
         return
     }
     
-    setLocalStoragePopular(arrayFilms);
+    setResultData(arrayFilms);
 
     const validFilmsArray = standartindArrayFilms(arrayFilms);
     

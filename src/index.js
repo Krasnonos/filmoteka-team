@@ -11,3 +11,5 @@ import './js/spinner-js/spinner';
 import './js/home-modal-js/closingModal';
 import './js/local-storage/local-storage';
 import './js/pagination/pagination';
+import './js/firebase/modal-auth';
+import './js/firebase/firebase-auth';
