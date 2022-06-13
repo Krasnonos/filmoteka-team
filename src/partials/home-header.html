@@ -18,30 +18,39 @@
                 <li class="header-list__item">
                     <a href="./index.html" class="header-list__link link current">Home</a>
                 </li>
-                <li class="header-list__item">
+                <li class="header-list__item" id="user-login">
+                    <a href="#" class="header-list__link link" data-modal-open>Log in</a>
+                </li>
+                <li class="header-list__item hidden-link" id="user-library">
                     <a href="./library.html" class="header-list__link link">My library</a>
+                </li>
+                <li class="header-list__item hidden-link" id="user-logout">
+                    <a href="#" class="header-list__link link">Log out</a>
                 </li>
             </ul>
         </nav>
     </div>
 
-    <form class="home-header_search">
-        <input name="searchQuery" type="text" class="home-header_search_input" placeholder="Пошук фільмів">
+    <div class="home-header_search">
+        <input type="text" class="home-header_search_input" placeholder="Пошук фільмів">
         <button type="submit" class="home-header_search_button">
             <svg class="home-header_search-icon" width="12px" height="12px">
                 <use href="./images/icons.svg#icon-search"></use>
 
             </svg>
         </button>
-    </form>
-    <p class="header_container_line"></p>
+
+    </div>
+    <div class="home-header_line">
+        <p class="home-header_line_message">ALARM</p>
     </div>
 
     <div class="theme-switch-wrapper">
         <label class="theme-switch" for="checkbox">
             <input type="checkbox" id="checkbox">
-            <div class="slider round"></div>
+            <div class="slide round"></div>
         </label>
     </div>
+
 
 </header>
