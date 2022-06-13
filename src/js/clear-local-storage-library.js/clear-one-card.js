@@ -1,25 +1,27 @@
-import getFilmsDataFromService from './get-films-data-from-service';
-import filmCartTemplate from '../../hbs-templates/film-card-library.hbs';
+import createMarkup from '../my-library/create-library-markup';
+import {
+  getCurrentFilmsData,
+  setCurrentFilmsData,
+} from '../my-library/current-films-data';
 
 const libraryListEl = document.querySelector('.gallery-list');
+const watchedPlaceholder = document.querySelector('.js-watched-text');
+const queuePlaceholder = document.querySelector('.js-queue-text');
 
 libraryListEl.addEventListener('click', removeCard);
 
 async function removeCard(e) {
-  if (e.target.nodeName !== 'BUTTON') {
+  if (e.target.nodeName !== 'svg') {
     return;
   }
-
-  const filmId = e.target.dataset.filmid;
+  const filmId = e.target.closest('.remove-film-btn').dataset.filmid;
   const localStorageKey = findLocalStorageKey();
-  const newFilmsIdArray = removeCardFromLocalStorage(filmId, localStorageKey);
-  const filmsDataArray = await newFilmsIdArray.map(filmId =>
-    getFilmsDataFromService(filmId)
-  );
-  const newFilmsMarkup = filmsDataArray
-    .map(filmData => filmCartTemplate(filmData))
-    .join('');
-  libraryListEl.innerHTML = newFilmsMarkup;
+  removeCardFromLocalStorage(filmId, localStorageKey);
+  chekLoacalStorageAndShowPlaceholder(localStorageKey);
+  const currentFilms = getCurrentFilmsData();
+  const newFilmsData = currentFilms.filter(({ id }) => id !== Number(filmId));
+  libraryListEl.innerHTML = createMarkup(newFilmsData);
+  setCurrentFilmsData(newFilmsData);
 }
 
 function findLocalStorageKey() {
@@ -36,4 +38,15 @@ function removeCardFromLocalStorage(filmIdToRemove, localStorageKey) {
   );
   localStorage.setItem(localStorageKey, JSON.stringify(filteredFilmId));
   return filteredFilmId;
+}
+
+function chekLoacalStorageAndShowPlaceholder(key) {
+  if (localStorage.getItem(key).length === 0) {
+    return;
+  }
+  if (key === `watched-films`) {
+    watchedPlaceholder.style.display = 'block';
+  } else {
+    queuePlaceholder.style.display = 'block';
+  }
 }

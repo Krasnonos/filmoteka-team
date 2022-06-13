@@ -15,6 +15,7 @@ async function showQueueFilms(e) {
   const localStorageKey = e.currentTarget.dataset.key;
   const filmsArrayJson = localStorage.getItem(localStorageKey);
   const filmsArray = JSON.parse(filmsArrayJson);
+
   if (!filmsArray) {
     return;
   }
@@ -22,9 +23,8 @@ async function showQueueFilms(e) {
   const PromisesFilmData = await filmsArray.map(id => getFilmInfoById(id));
   const filmsResponse = await Promise.all(PromisesFilmData);
   const filmsData = filmsResponse.map(film => film.data);
-  console.log(filmsData);
-  setCurrentFilmsData(filmsData);
   galleryList.innerHTML = createMarkup(filmsData);
+  setCurrentFilmsData(filmsData);
   hidePlaceholder(localStorageKey);
 }
 

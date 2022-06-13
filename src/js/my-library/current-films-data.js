@@ -1,11 +1,7 @@
-const currentFilmsDataList = [];
+let currentFilmsDataList = [];
 
 function setCurrentFilmsData(filmsData) {
-  try {
-    filmsData.array.forEach(film => {
-      return currentFilmsDataList.push(film);
-    });
-  } catch (error) {}
+  currentFilmsDataList = [...filmsData];
 }
 
 function getCurrentFilmsData() {
@@ -17,5 +13,3 @@ function clearCurrentFilmsData() {
 }
 
 export { setCurrentFilmsData, getCurrentFilmsData, clearCurrentFilmsData };
-
-console.log(currentFilmsDataList);
