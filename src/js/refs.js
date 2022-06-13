@@ -9,4 +9,3 @@ export const refs = {
   backdropSpinnerRef: document.querySelector('.backdrop-spinner'),
   
 };
-// export const paginationRef = document.querySelector('.pagination');

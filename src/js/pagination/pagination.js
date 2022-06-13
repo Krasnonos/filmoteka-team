@@ -43,7 +43,7 @@ if (page > 2) {
   paginationMarkup += `<li class="pagination__number">1</li>`;
 }
 if (page > 4) {
-  paginationMarkup += `<li class="pagination__number points-none">...</li>`;
+  paginationMarkup += `<li class="pagination__number">...</li>`;
 }
 
 if (page > 3) {
