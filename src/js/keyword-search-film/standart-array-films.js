@@ -1,5 +1,6 @@
 import {genreIds} from './ganre-ids';
 import { validGenre } from './valid-genre';
+import imgNotFound from '../../images/Logo.png';
 
 export function standartindArrayFilms(films) {
     return films.map(({ id, original_title, title, genre_ids, poster_path, backdrop_path, release_date }) => {
@@ -8,7 +9,7 @@ export function standartindArrayFilms(films) {
 
 
         if (!poster_path && !backdrop_path) {
-            baseUrl = 'https://www.drupal.org/files/project-images/broken-image.jpg';
+            baseUrl = imgNotFound;
             poster_path = '';
             backdrop_path = '';
         }
