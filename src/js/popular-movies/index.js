@@ -10,7 +10,6 @@ async function ready() {
     const results = response.data.results;
     refs.galleryListEl.insertAdjacentHTML('afterbegin', createMarkup(results));
     setResultData(results);
-    return results;
   } catch (error) {
     refs.galleryListEl.insertAdjacentHTML(
       'afterbegin',
