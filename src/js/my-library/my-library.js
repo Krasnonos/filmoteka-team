@@ -17,6 +17,7 @@ async function showQueueFilms(e) {
   const filmsArray = JSON.parse(filmsArrayJson);
 
   if (!filmsArray) {
+    galleryList.innerHTML = '';
     return;
   }
 
