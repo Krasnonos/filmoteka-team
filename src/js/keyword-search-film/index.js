@@ -32,10 +32,10 @@ async function onSearchFilmSubmitForm (e) {
         return
     }
     
-    setResultData(arrayFilms);
-
     const validFilmsArray = standartindArrayFilms(arrayFilms);
     
+    setResultData(validFilmsArray);
+
     renderCards(validFilmsArray);
 
 }
