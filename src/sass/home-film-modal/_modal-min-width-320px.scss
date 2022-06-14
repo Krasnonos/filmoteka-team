@@ -36,9 +36,6 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 280px;
-    z-index: 100;
-    box-shadow: 0px 0px 15px 5px rgba(255, 107, 8, 0.75);
-
   }
 
   .modal {
@@ -52,7 +49,7 @@
     transition-property: scale, transform, opacity;
     transition-duration: 300ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 105;
+    // z-index: 105;
     // overflow: auto;
     // -ms-overflow-style: none;
     scrollbar-width: none;
@@ -88,7 +85,15 @@
     background-color: transparent;
     cursor: pointer;
     fill: $third-text-color;
-    z-index: 110;
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    // z-index: 16;
+    &:hover,
+    &:focus {
+      color: $accent-color;
+    }
+
   }
 
   .modal__icon-close {
