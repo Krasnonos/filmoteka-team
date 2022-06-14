@@ -27,12 +27,20 @@
     <div class="library-header_buttons">
         <ul class="library-header-buttons-list">
             <li class="library-header-buttons-list__item">
-                <button class="library-header_buttons_watch" type="button" id="watched">Watched</button>
+                <button class="library-header_buttons_watch" type="button" id="watched" data-key="watched-films"
+                    data-current="currentPage">Watched</button>
             </li>
             <li class="library-header-buttons-list__item">
-                <button class="library-header_buttons_watch" type="button" id="queue">Queue</button>
+                <button class="library-header_buttons_watch" type="button" id="queue"
+                    data-key="queue-films">Queue</button>
 
             </li>
         </ul>
+    </div>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox">
+            <div class="slide round"></div>
+        </label>
     </div>
 </header>

@@ -2,7 +2,6 @@
 import KeywordSearchFilmServise from './servise-keyword-search-film';
 
 
-
 export async function getFilm(searchQuery) {
 
     const keywordSearchFilmServise = new KeywordSearchFilmServise;
@@ -14,5 +13,5 @@ export async function getFilm(searchQuery) {
     const arrayFilms = res.data.results;
 
     return arrayFilms;
+   
 }
-

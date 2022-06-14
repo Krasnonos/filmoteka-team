@@ -5,6 +5,7 @@
 
   body.modal-open {
     overflow: hidden;
+    overflow-y: hidden;
   }
 
   .is-hidden.backdrop {
@@ -23,7 +24,7 @@
     width: 100%;
     height: 100%;
     font-family: 'Roboto';
-    color: #000;
+    color: $third-text-color;
     background: rgba(0, 0, 0, 0.2);
     transition-property: opacity;
     transition-duration: 250ms;
@@ -59,6 +60,19 @@
     }
   }
 
+  .modal__box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $main-bg-color;
+    border: 4px solid $accent-color;
+    z-index: 103;
+    // -------------------Аnimate the border ------------------
+    filter: url(#wavy);
+  }
   .modal__close-button {
     position: absolute;
     display: flex;
@@ -79,6 +93,7 @@
     &:focus {
       color: $accent-color;
     }
+
   }
 
   .modal__icon-close {
@@ -90,7 +105,13 @@
     fill: currentColor;
     width: 30px;
     height: 30px;
-    // z-index: 100;
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    &:hover,
+    &:focus {
+      color: $accent-color;
+    }
   }
 
   .modal__poster {
@@ -181,7 +202,7 @@
     border: $third-text-color solid 1px;
     transition-property: color, background-color;
     transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    // transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
     &:hover {
       background-color: $accent-color;

@@ -6,6 +6,7 @@ export function createMarkup(results) {
   let markup = '';
 
   results.forEach(res => {
+    console.log(res.genre_ids);
     const data = {
       filmId: res.id,
       title: res.name || res.title || 'XXXX',
