@@ -33,7 +33,7 @@ async function onSearchFilmSubmitForm (e) {
     }
     
     setResultData(arrayFilms);
-
+    
     const validFilmsArray = standartindArrayFilms(arrayFilms);
     
     renderCards(validFilmsArray);
