@@ -1,21 +1,17 @@
 import { refs } from '../refs';
+import { onCloseModal } from './onCloseModal';
 
+export function onKeyDown(event) {
+  event.preventDefault();
+  if (event.code === 'Escape') {
+    onCloseModal();
+    window.removeEventListener('keydown', onKeyDown);
+  }
+}
 
-
-  window.addEventListener('keydown', event => { 
-    if (event.code === "Escape") { 
-        refs.modalBackdropRef.classList.add('is-hidden');
-        refs.bodyRef.classList.remove('modal-open');
-        const modalRef = document.querySelector('.modal__box .modal');
-        modalRef.remove();
-    };
-  });
-
-document.addEventListener('click', event => {
- if (event.target === refs.modalBackdropRef) {
-  refs.modalBackdropRef.classList.add('is-hidden');
-  refs.bodyRef.classList.remove('modal-open');
-  const modalRef = document.querySelector('.modal__box .modal');
-  modalRef.remove();
- }; 
-});
+export function onBackDropClick(event) {
+  if (event.target === refs.modalBackdropRef) {
+    onCloseModal();
+    document.removeEventListener('click', onBackDropClick);
+  }
+}
