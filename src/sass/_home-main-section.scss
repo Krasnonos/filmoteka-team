@@ -18,12 +18,15 @@
     }
 
     &__item {
+        border-radius: 5px;
         margin-bottom: 20px;
         width: 100%;
 
-        &:last-child {
-            margin-bottom: 0px;
-        }
+        @media screen and (max-width: 767px) {
+            &:last-child {
+                margin-bottom: 0px;
+                }
+            }
 
         @media screen and (min-width: 768px) {
             margin: 16px;
@@ -140,8 +143,8 @@
         }
 }
 
-.gallery-list__card:hover,
-.gallery-list__card:focus {
+.gallery-list__item:hover,
+.gallery-list__item:focus {
     cursor: pointer;
 
     box-shadow: 0px 0px 15px 5px rgba(255, 107, 8, 0.75);
