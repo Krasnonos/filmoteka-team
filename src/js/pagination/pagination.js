@@ -14,7 +14,7 @@ async function ready(page = 1) {
     const results = await response.data.results;
     const currentPage = response.data.page;
     const totalPage = response.data.total_pages;
-    cardList.innerHTML='';
+    cardList.innerHTML = '';
     refs.galleryListEl.insertAdjacentHTML('afterbegin', createMarkup(results));
     setResultData(results);
     console.log(response);
@@ -28,82 +28,76 @@ async function ready(page = 1) {
   }
 }
 ready();
-function renderPagination (page, totalPage) {
+function renderPagination(page, totalPage) {
   currentPage = page;
-let paginationMarkup = '';
-let beforeTwoPage = page - 2;
-let beforePage = page - 1;
-let afterTwoPage = page + 2;
-let afterPage = page + 1;
+  let paginationMarkup = '';
+  let beforeTwoPage = page - 2;
+  let beforePage = page - 1;
+  let afterTwoPage = page + 2;
+  let afterPage = page + 1;
 
-if (page > 1) {
-  paginationMarkup += `<li class="pagination__arrow pagination__arrow--left materials-icons">&larr;</li>`
-}
-if (page > 2) {
-  paginationMarkup += `<li class="pagination__number">1</li>`;
-}
-if (page > 4) {
-  paginationMarkup += `<li class="pagination__number">...</li>`;
-}
-
-if (page > 3) {
-  paginationMarkup += `<li class="pagination__number">${beforeTwoPage}</li>`;
-}
-
-if (page >= 2) {
-  paginationMarkup += `<li class="pagination__number">${beforePage}</li>`;
-}
-
-paginationMarkup += `<li class="pagination__number active">${page}</li>`;
-if (page < totalPage - 1) {
-  paginationMarkup += `<li class="pagination__number">${afterPage}</li>`;
-}
-if (page < totalPage - 2) {
-paginationMarkup += `<li class="pagination__number">${afterTwoPage}</li>`;
-}
-if (page <= totalPage - 1) {
-  
-  if (page < totalPage - 3) {
-  paginationMarkup += `<li class="pagination__number points-none">...</li>`
+  if (page > 1) {
+    paginationMarkup += `<li class="pagination__arrow pagination__arrow--left materials-icons">&larr;</li>`;
   }
-  paginationMarkup += `<li class="pagination__number points-none">${totalPage}</li>`
-}
+  if (page > 2) {
+    paginationMarkup += `<li class="pagination__number">1</li>`;
+  }
+  if (page > 4) {
+    paginationMarkup += `<li class="pagination__number">...</li>`;
+  }
 
+  if (page > 3) {
+    paginationMarkup += `<li class="pagination__number">${beforeTwoPage}</li>`;
+  }
 
-if (page < totalPage) {
-  paginationMarkup += `<li class='pagination__arrow pagination__arrow--right materials-icons'>&rarr;</li>`;
-}
+  if (page >= 2) {
+    paginationMarkup += `<li class="pagination__number">${beforePage}</li>`;
+  }
 
-paginationList.innerHTML = paginationMarkup;
- 
-paginationList.addEventListener('click', onPagination);
+  paginationMarkup += `<li class="pagination__number active">${page}</li>`;
+  if (page < totalPage - 1) {
+    paginationMarkup += `<li class="pagination__number">${afterPage}</li>`;
+  }
+  if (page < totalPage - 2) {
+    paginationMarkup += `<li class="pagination__number">${afterTwoPage}</li>`;
+  }
+  if (page <= totalPage - 1) {
+    if (page < totalPage - 3) {
+      paginationMarkup += `<li class="pagination__number points-none">...</li>`;
+    }
+    paginationMarkup += `<li class="pagination__number points-none">${totalPage}</li>`;
+  }
 
+  if (page < totalPage) {
+    paginationMarkup += `<li class='pagination__arrow pagination__arrow--right materials-icons'>&rarr;</li>`;
+  }
 
+  paginationList.innerHTML = paginationMarkup;
+
+  paginationList.addEventListener('click', onPagination);
 }
 console.log('&larr;');
 console.log('&rarr;');
 
-function onPagination (e) {
+function onPagination(e) {
   e.preventDefault();
-  if (e.target.nodeName !== `LI` ) {
+  if (e.target.nodeName !== `LI`) {
     return;
   }
- const target = e.target.textContent;
- window.scrollTo({ top: 240, behavior: 'smooth' });
-switch ( target) {
- case  '←': 
-ready(currentPage - 1);
-break
-case  '→': 
-ready(currentPage + 1);
-break
+  const target = e.target.textContent;
+  window.scrollTo({ top: 240, behavior: 'smooth' });
+  switch (target) {
+    case '←':
+      ready(currentPage - 1);
+      break;
+    case '→':
+      ready(currentPage + 1);
+      break;
 
-case '...':
-  break;
+    case '...':
+      break;
 
- default: ready(target);
- 
+    default:
+      ready(target);
+  }
 }
-} 
-
-
