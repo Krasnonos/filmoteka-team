@@ -1,7 +1,7 @@
 import { requestPopularMovies } from '../popular-movies/request-popular-movies';
 import { createMarkup } from '../popular-movies/create-markup';
 import { refs } from '../refs-el/refs-el';
-import { setLocalStoragePopular } from '../popular-movies/popular-local-storage';
+import { setResultData } from '../popular-movies/data-result';
 // document.addEventListener('DOMContentLoaded', ready);
 const paginationList = document.querySelector('.pagination');
 const cardList = document.querySelector('.gallery-list');
@@ -16,7 +16,7 @@ async function ready(page = 1) {
     const totalPage = response.data.total_pages;
     cardList.innerHTML='';
     refs.galleryListEl.insertAdjacentHTML('afterbegin', createMarkup(results));
-    setLocalStoragePopular(results);
+    setResultData(results);
     console.log(response);
     renderPagination(currentPage, totalPage);
   } catch (error) {
