@@ -3,7 +3,7 @@ import { getBaseURLPath } from './getBaseURLPath';
 import { getGenreByIds } from './getGenreByIds';
 import { baseURLPath } from './homeModalJS';
 
-export function getCurrentModalDataFromLocalArray(id) {
+export function getCurrentModalDataFromLocalArray(id, currentGenre) {
   const result = getResultData();
   const currentMovie = result.find(element => element.id === Number(id));
 
@@ -11,9 +11,12 @@ export function getCurrentModalDataFromLocalArray(id) {
     ? currentMovie.title
     : currentMovie.original_name;
 
-  const genre = getGenreByIds(currentMovie.genre_ids[0]);
+  const genre = currentGenre
+    ? currentGenre
+    : getGenreByIds(currentMovie.genre_ids[0]);
 
   const currentModalData = {
+    id: id,
     absolut_poster_path: baseURLPath + currentMovie.poster_path,
     genre: genre,
     original_title: title,
