@@ -3,7 +3,8 @@ import { getFilm } from "./getFilm";
 import { standartindArrayFilms } from "./standart-array-films";
 import { renderCards } from "./render-cards";
 import { refs } from './refs-el';
-import {spinnerOn, spinnerOff} from '../spinner-js/spinner'
+import { spinnerOn, spinnerOff } from '../spinner-js/spinner';
+import { setResultData } from "../popular-movies/data-result";
 
 
 refs.form.addEventListener('submit', onSearchFilmSubmitForm)
@@ -31,7 +32,8 @@ async function onSearchFilmSubmitForm (e) {
         return
     }
     
-
+    setResultData(arrayFilms);
+    
     const validFilmsArray = standartindArrayFilms(arrayFilms);
     
     renderCards(validFilmsArray);

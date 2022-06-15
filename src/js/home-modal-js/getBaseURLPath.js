@@ -1,9 +1,6 @@
 import axios from 'axios';
-import { spinnerOff, spinnerOn } from '../spinner-js/spinner';
-import { getAdaptiveDataForRender } from './getAdaptiveDataForRender';
 
 const KEY = 'c8ef48bae82b60cf66a4f0e6e3dd153e';
-const BASE_URL = `https://api.themoviedb.org/3/movie/`;
 const BASE_URL_CONFIG = 'https://api.themoviedb.org/3/configuration';
 
 const options = {
@@ -28,13 +25,11 @@ async function fetchSeachRequest(searchInstance) {
   return await searchInstance.get('', options);
 }
 
-export async function getModalData(id) {
-  const searchInstance = axios.create({
-    baseURL: BASE_URL + id,
-    https: config1,
-  });
+export async function getBaseURLPath() {
+  const config = await fetchSeachRequest(searchInstanceConfig);
 
-  const movie = await fetchSeachRequest(searchInstance);
+  const posterBaseImageSRC =
+    config.data.images.secure_base_url + config.data.images.poster_sizes[3];
 
-  return getAdaptiveDataForRender(movie.data);
+  return posterBaseImageSRC;
 }

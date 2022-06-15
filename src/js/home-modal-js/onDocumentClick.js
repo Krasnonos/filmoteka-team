@@ -1,5 +1,7 @@
+import { getResultData } from '../popular-movies/data-result';
 import { spinnerOff } from '../spinner-js/spinner';
 import { getCardElement } from './getCardElement';
+import { getCurrentModalDataFromLocalArray } from './getCurrentModalDataFromLocalArray';
 import { getModalData } from './getModalData';
 import { showModal } from './showModal';
 
@@ -7,9 +9,17 @@ export function onDocumentClick(event) {
   const elementRef = getCardElement(event);
   if (elementRef.hasAttribute('data-filmid')) {
     const id = elementRef.dataset.filmid;
-    getModalData(id).then(resp => {
-      showModal(resp);
-      spinnerOff();
-    });
+
+    // нова логіка отримання даних для модального вікна (без завантаження даних з сервера)
+    const currentModalData = getCurrentModalDataFromLocalArray(id);
+    if (currentModalData) {
+      showModal(currentModalData);
+    } else {
+      spinnerOn();
+      getModalData(id).then(resp => {
+        showModal(resp);
+        spinnerOff();
+      });
+    }
   }
 }

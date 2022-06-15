@@ -24,7 +24,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 280px;
-  max-height: 97%;
+  max-height: 95%;
   background-color: rgba(0, 0, 0, 0.9);
   border-radius: 4px;
   overflow: auto;
@@ -303,6 +303,10 @@
 .team-list__link:hover .team-list__link-svg,
 .team-list__link:focus .team-list__link-svg {
   fill: #2196f3;
+}
+
+.team-list__link-svg--linkedin {
+  transform: scale(1.2);
 }
 
 .team-list__message-time {

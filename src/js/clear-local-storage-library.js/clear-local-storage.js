@@ -1,6 +1,6 @@
 // -------------------
 const clearBtn = document.querySelector('.clear-library-btn');
-const libraryList = document.querySelector('.js-gallery-list');
+const libraryList = document.querySelector('.gallery-list');
 const watchedPlaceholder = document.querySelector('.js-watched-text');
 const queuePlaceholder = document.querySelector('.js-queue-text');
 
@@ -14,9 +14,9 @@ function findLocalStorageKey(e) {
   clearLocalStorageAndFilmList(lockalStorageKey);
 
   if (currentPage.id === 'watched') {
-    watchedPlaceholder.classList.remove('is-hidden');
+    watchedPlaceholder.style.display = 'block';
   } else {
-    queuePlaceholder.classList.remove('is-hidden');
+    queuePlaceholder.style.display = 'block';
   }
 }
 
