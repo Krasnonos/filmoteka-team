@@ -13,39 +13,47 @@ watchedBtn.addEventListener('click', showFilms);
 document.addEventListener('DOMContentLoaded', firstShowFilms);
 
 async function firstShowFilms(e) {
-  const localStorageKey = watchedBtn.dataset.key;
-  const filmsArrayJson = localStorage.getItem(localStorageKey);
-  const filmsArray = JSON.parse(filmsArrayJson);
+  try {
+    const localStorageKey = watchedBtn.dataset.key;
+    const filmsArrayJson = localStorage.getItem(localStorageKey);
+    const filmsArray = JSON.parse(filmsArrayJson);
 
-  if (!filmsArray) {
-    galleryList.innerHTML = '';
-    return;
+    if (!filmsArray) {
+      galleryList.innerHTML = '';
+      return;
+    }
+
+    const PromisesFilmData = await filmsArray.map(id => getFilmInfoById(id));
+    const filmsResponse = await Promise.all(PromisesFilmData);
+    const filmsData = filmsResponse.map(film => film.data);
+    galleryList.innerHTML = createMarkup(filmsData);
+    setCurrentFilmsData(filmsData);
+    hidePlaceholder(localStorageKey);
+  } catch (error) {
+    console.log(error);
   }
-
-  const PromisesFilmData = await filmsArray.map(id => getFilmInfoById(id));
-  const filmsResponse = await Promise.all(PromisesFilmData);
-  const filmsData = filmsResponse.map(film => film.data);
-  galleryList.innerHTML = createMarkup(filmsData);
-  setCurrentFilmsData(filmsData);
-  hidePlaceholder(localStorageKey);
 }
 
 async function showFilms(e) {
-  const localStorageKey = e.currentTarget.dataset.key;
-  const filmsArrayJson = localStorage.getItem(localStorageKey);
-  const filmsArray = JSON.parse(filmsArrayJson);
+  try {
+    const localStorageKey = e.currentTarget.dataset.key;
+    const filmsArrayJson = localStorage.getItem(localStorageKey);
+    const filmsArray = JSON.parse(filmsArrayJson);
 
-  if (!filmsArray) {
-    galleryList.innerHTML = '';
-    return;
+    if (!filmsArray) {
+      galleryList.innerHTML = '';
+      return;
+    }
+
+    const PromisesFilmData = await filmsArray.map(id => getFilmInfoById(id));
+    const filmsResponse = await Promise.all(PromisesFilmData);
+    const filmsData = filmsResponse.map(film => film.data);
+    galleryList.innerHTML = createMarkup(filmsData);
+    setCurrentFilmsData(filmsData);
+    hidePlaceholder(localStorageKey);
+  } catch (error) {
+    console.log(error);
   }
-
-  const PromisesFilmData = await filmsArray.map(id => getFilmInfoById(id));
-  const filmsResponse = await Promise.all(PromisesFilmData);
-  const filmsData = filmsResponse.map(film => film.data);
-  galleryList.innerHTML = createMarkup(filmsData);
-  setCurrentFilmsData(filmsData);
-  hidePlaceholder(localStorageKey);
 }
 
 function hidePlaceholder(key) {
