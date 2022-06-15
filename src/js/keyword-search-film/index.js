@@ -5,6 +5,7 @@ import { renderCards } from "./render-cards";
 import { refs } from './refs-el';
 import { spinnerOn, spinnerOff } from '../spinner-js/spinner';
 import { setResultData } from "../popular-movies/data-result";
+import {renderPaginationSearch} from './pagin-search'
 
 
 refs.form.addEventListener('submit', onSearchFilmSubmitForm)
@@ -23,12 +24,13 @@ async function onSearchFilmSubmitForm (e) {
 
     spinnerOn();
 
-    const arrayFilms = await getFilm(inputValue);
+    const {arrayFilms, totalPages} = await getFilm(inputValue, 1);
 
     spinnerOff();
 
     if (arrayFilms.length === 0) {        
         addAlert();
+        refs.paginationList.innerHTML = '';
         return
     }
     
@@ -38,13 +40,17 @@ async function onSearchFilmSubmitForm (e) {
     
     renderCards(validFilmsArray);
 
+    refs.paginationList.innerHTML = '';
+
+    renderPaginationSearch(1, totalPages);
+
 }
 
 function addAlert() {
-    refs.text.style.display = 'block';
     refs.text.textContent = 'Search result not successful. Enter the correct movie name and';
 }
 
 function onChangeInput(e) {
-    refs.text.style.display = 'none';
+    refs.text.textContent = '';
+
 }

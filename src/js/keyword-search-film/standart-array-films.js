@@ -1,6 +1,6 @@
 import {genreIds} from './ganre-ids';
 import { validGenre } from './valid-genre';
-import imgNotFound from '../../images/Logo.png';
+import imgNotFound from '../../images/image-not-found-adaptive.png';
 
 export function standartindArrayFilms(films) {
     return films.map(({ id, original_title, title, genre_ids, poster_path, backdrop_path, release_date }) => {
