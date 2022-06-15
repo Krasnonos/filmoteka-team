@@ -6,6 +6,7 @@ import { getModalData } from './getModalData';
 
 let absolut_poster_path = '';
 let genre = '';
+let originalTitle;
 
 export function getAdaptiveDataForRender(currentMovie) {
   const {
