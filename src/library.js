@@ -1,3 +1,4 @@
+import './js/home-modal-js/homeModalJS';
 import './js/clear-local-storage-library.js/change-current-page';
 import './js/my-library/my-library';
 import './js/spinner-js/spinner';

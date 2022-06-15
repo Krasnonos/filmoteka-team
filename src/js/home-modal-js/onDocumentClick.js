@@ -1,5 +1,5 @@
 import { getResultData } from '../popular-movies/data-result';
-import { spinnerOff } from '../spinner-js/spinner';
+import { spinnerOff, spinnerOn } from '../spinner-js/spinner';
 import { getCardElement } from './getCardElement';
 import { getCurrentModalDataFromLocalArray } from './getCurrentModalDataFromLocalArray';
 import { getModalData } from './getModalData';
