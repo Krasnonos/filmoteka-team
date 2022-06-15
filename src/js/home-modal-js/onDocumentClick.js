@@ -12,12 +12,14 @@ export function onDocumentClick(event) {
 
     // нова логіка отримання даних для модального вікна (без завантаження даних з сервера)
     const currentModalData = getCurrentModalDataFromLocalArray(id);
-    showModal(currentModalData);
-
-    // відключаем логіку отримання данних з сервера
-    // getModalData(id).then(resp => {
-    //   showModal(resp);
-    //   spinnerOff();
-    // });
+    if (currentModalData) {
+      showModal(currentModalData);
+    } else {
+      spinnerOn();
+      getModalData(id).then(resp => {
+        showModal(resp);
+        spinnerOff();
+      });
+    }
   }
 }
