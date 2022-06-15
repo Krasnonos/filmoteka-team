@@ -8,4 +8,4 @@ import './js/theme-change/day-night';
 // import './js/my-library-home/index';
 import './js/clear-local-storage-library.js/clear-local-storage';
 import './js/clear-local-storage-library.js/clear-one-card';
-
+import './js/firebase/logout-library'
