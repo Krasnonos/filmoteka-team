@@ -5,6 +5,7 @@ import defaultIMG from '../../images/image-not-found-adaptive.png';
 import { getModalData } from './getModalData';
 
 let absolut_poster_path = '';
+let genre = '';
 
 export function getAdaptiveDataForRender(currentMovie) {
   const {
