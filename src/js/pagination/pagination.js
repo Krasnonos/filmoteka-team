@@ -1,11 +1,10 @@
 import { requestPopularMovies } from '../popular-movies/request-popular-movies';
 import { createMarkup } from '../popular-movies/create-markup';
-import { refs} from '../refs-el/refs-el';
-import { setResultData} from '../popular-movies/data-result';
+import { refs } from '../refs-el/refs-el';
+import { setResultData } from '../popular-movies/data-result';
 // document.addEventListener('DOMContentLoaded', ready);
 const paginationList = document.querySelector('.pagination');
 const cardList = document.querySelector('.gallery-list');
-
 
 let currentPage = 1;
 async function ready(page) {
@@ -28,9 +27,7 @@ async function ready(page) {
   }
 }
 
-
 export function renderPagination(page, totalPage) {
- 
   currentPage = page;
   let paginationMarkup = '';
   let beforeTwoPage = page - 2;
@@ -80,7 +77,6 @@ export function renderPagination(page, totalPage) {
 }
 
 function onPagination(e) {
-  
   if (e.target.nodeName !== `LI`) {
     return;
   }
@@ -101,5 +97,3 @@ function onPagination(e) {
       ready(target);
   }
 }
-
-
