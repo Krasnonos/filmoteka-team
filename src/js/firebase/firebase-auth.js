@@ -2,10 +2,12 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, AuthErrorCodes, createUserWithEmailAndPassword, signOut } from "firebase/auth";
+import { getDoc, getFirestore, setDoc, updateDoc, addDoc, collection } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBUOkNmStKTSocLVZep5KOG-DCmcE-JtyU",
   authDomain: "team-project-filmoteka-4a376.firebaseapp.com",
+//   databaseURL: "https://team-project-filmoteka-4a376.firebaseio.com",
   projectId: "team-project-filmoteka-4a376",
   storageBucket: "team-project-filmoteka-4a376.appspot.com",
   messagingSenderId: "642268048302",
@@ -15,7 +17,8 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-const auth = getAuth(app);
+const firestore = getFirestore(app);
+const auth = getAuth();
 
 const btnLogin = document.querySelector('#btnLogin'); 
 const btnSignup = document.querySelector('#btnSignup'); 
@@ -25,6 +28,8 @@ const modal = document.querySelector('[data-modal]');
 const userLogin = document.querySelector('#user-login');
 const userLibrary = document.querySelector('#user-library');
 const userLogout = document.querySelector('#user-logout');
+
+
 
 const loginEmailPassword = async (evt) => {
     evt.preventDefault();
@@ -36,9 +41,9 @@ const loginEmailPassword = async (evt) => {
         const userCredential = await signInWithEmailAndPassword(auth, loginEmail, loginPassword)
             .then(data => {
                 if (data) {
-                    Notify.success(`Hello: ${loginEmail}`);
+                    // Notify.success(`Hello: ${loginEmail}`);
                     modal.classList.toggle('is-hidden');
-                    toggleAuth();
+                    // toggleAuth();
                     txtEmail.value = '';
                     txtPassword.value = '';
                     console.log(data);
@@ -61,13 +66,23 @@ const createAccount = async(evt) => {
     const loginPassword = txtPassword.value;
 
     try {
-        const userCredential = await createUserWithEmailAndPassword(auth, loginEmail, loginPassword)
-            .then(data => {
-                if (data) {
-                    Notify.success('Registration completed successfully. Click Log in')
-                    console.log(data);
-                }
-        console.log('btnclick createAccount');
+        await createUserWithEmailAndPassword(auth, loginEmail, loginPassword)
+            .then(async userCredential => {
+                // if (data) {
+                    // Notify.success('Registration completed successfully. Click Log in')
+                    modal.classList.toggle('is-hidden');
+                //     console.log(data);
+                // }
+                // try {
+                //     const docRef = await addDoc(collection(firestore, 'users'), {
+                //         email: loginEmail,
+                //         password: loginPassword,
+                //         queuefilms: [],
+                //         watchedfilms: [],
+                //     })
+                //     console.log(docRef);
+                // }
+                // catch(e) {console.log(e)}
             })
     }
     catch (error) {
@@ -92,10 +107,19 @@ const showLoginError = (error) => {
     }
 }
     
+// Detect auth state
+
+    onAuthStateChanged(auth, user => {
+    if (user) {
+        console.log(user);
+        toggleAuth();
+    }
+}) 
+
 const logout = async () => {
     await signOut(auth);
     toggleAuth();
-    Notify.info("You have been logged out.");
+    // Notify.info("You have been logged out.");
 }
 
 userLogout.addEventListener('click', logout);
@@ -105,3 +129,38 @@ function toggleAuth() {
     userLibrary.classList.toggle('hidden-link');
     userLogout.classList.toggle('hidden-link');
 }
+
+// ----------------Firestore-----------------
+
+
+
+// const specialOfTheDay = doc(firestore, 'dailySpecial/2021-09-14'); // path to your document
+
+// function writeDailySpecial() {
+//     const docData = {
+//         description: 'A delicious vanilla latte',
+//         price: 3.99, 
+//         milk: 'Whole',
+//         // queuefilms: [],
+//         // watchedfilms: [],
+//     }
+//     // setDoc(specialOfTheDay, docData); - it will completely replace any document that already exists
+//     // setDoc(specialOfTheDay, docData, { merge: true});
+//     try {
+//         await updateDoc(specialOfTheDay, docData); // - overwrite the fields that you specify and keep old data 
+//         console.log('add to the database')
+//     } catch (error) {
+//         console.log(`${error}`)
+//         }
+// }
+
+// async function readSingleDocument() {
+//     const mySnapshot = await getDoc(specialOfTheDay);
+//     if (mySnapshot.exists()) {
+//         const docData = mySnapshot.data();
+//         console.log(`My data is ${JSON.stringify(docData)}`);
+//     }
+// }
+
+// writeDailySpecial();
+// readSingleDocument();
