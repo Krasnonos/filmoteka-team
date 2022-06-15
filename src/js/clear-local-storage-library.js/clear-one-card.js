@@ -42,7 +42,6 @@ function removeCardFromLocalStorage(filmIdToRemove, localStorageKey) {
 
 function chekLoacalStorageAndShowPlaceholder(key) {
   if (JSON.parse(localStorage.getItem(key)).length !== 0) {
-    console.log(localStorage.getItem(key));
     return;
   }
 
