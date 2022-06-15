@@ -1,20 +1,23 @@
 import hbs from '../../hbs-templates/film-card-home-page.hbs';
 import { genreIds } from './ganre-ids';
 import { convertGanres } from './convert-name-ganres';
+import imgNotFound from '../../images/image-not-found-adaptive.png';
 
 export function createMarkup(results) {
   let markup = '';
 
   results.forEach(res => {
-    console.log(res.genre_ids);
+    const ganres = res.genre_ids?.map(id => convertGanres(genreIds, id));
+    if (ganres.length > 2) {
+      ganres.length = 2;
+      ganres.push('Others');
+    }
     const data = {
       filmId: res.id,
       title: res.name || res.title || 'XXXX',
       urlImg: res.poster_path,
       relisYer: (res.release_date || res.first_air_date || 'XXXX').slice(0, 4),
-      ganres:
-        res.genre_ids?.map(id => convertGanres(genreIds, id)).join(', ') ||
-        'XXXX',
+      ganres: ganres.join(', ') || 'Others',
     };
     markup += hbs(data);
   });
