@@ -1,13 +1,14 @@
-.library-empty{
+.library-empty {
     width: 100%;
     text-align: center;
 }
 
-.library-empty__title{
+.library-empty__title {
     margin-bottom: 15px;
     font-size: 28px;
     font-weight: 700;
-    color: $accent-color;
+    // color: $accent-color;
+    color: var(--accent-color);
 
     @media screen and (min-width: 769px) {
         font-size: 36px;
@@ -15,13 +16,15 @@
     }
 }
 
-.library-empty__text{
+.library-empty__text {
     font-size: 16px;
 
-    &:not(:last-child){
+    &:not(:last-child) {
         font-weight: 500;
         margin-bottom: 10px;
-    };
+    }
+
+    ;
 
     @media screen and (min-width: 769px) {
         font-size: 18px;
@@ -41,7 +44,8 @@
     // padding: 5;
     // margin-left: auto;
 
-    fill: $main-text-color;
+    // fill: $main-text-color;
+    fill: var(--main-text-color);
     // background-color: $main-bg-color;
     // border: 1px solid $third-text-color;
     border-radius: 5px;
@@ -56,15 +60,20 @@
 
     &:hover,
     &:focus {
-        color: $main-text-color;
-        background-color: $main-text-color;
-        border: 1px solid $accent-color;
+        // color: $main-text-color;
+        // background-color: $main-text-color;
+        // border: 1px solid $accent-color;
+        color: var(--main-text-color);
+        background-color: var(--main-text-color);
+        border: 1px solid var(--accent-color);
     }
 }
 
 .remove-film-svg {
+
     .remove-film-btn:focus &,
     .remove-film-btn:hover & {
-        fill: $accent-color;
+        // fill: $accent-color;
+        fill: var(--accent-color);
     }
 }
