@@ -49,13 +49,9 @@
         color: $third-text-color;
     }
 
-    &__text {
-        font-family: Roboto;
-        font-style: normal;
-        font-weight: 500;
-        font-size: 12px;
-        line-height: 1.33;
-        color: $accent-color;
+    &__info {
+        display: flex;
+        align-items: center;
     }
 
     &__genre {
@@ -101,11 +97,8 @@
 
     &__description {
         margin-top: 10px;
-    }
 
-    &__statics {
-        display: flex;
-        align-items: center;
+        padding: 0px 5px 5px 5px;
     }
 
     &__genre {
