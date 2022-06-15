@@ -17,10 +17,14 @@
 
   &:hover,
   &:focus {
-    color: $main-text-color;
-    background-color: $accent-color;
-    border: 1px solid $accent-color;
+    // color: $main-text-color;
+    // background-color: $accent-color;
+    // border: 1px solid $accent-color;
+    color: var(--main-text-color);
+    background-color: var(--accent-color);
+    border: 1px solid var(--accent-color);
   }
+
   @media screen and (min-width: 768px) {
     min-width: 125px;
     font-size: 16px;
@@ -32,6 +36,7 @@
 
   .clear-library-btn:focus &,
   .clear-library-btn:hover & {
-    fill: $main-text-color;
+    // fill: $main-text-color;
+    fill: var(--main-text-color);
   }
 }

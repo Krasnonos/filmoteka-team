@@ -1,5 +1,6 @@
 .add-block {
   display: none;
+
   @media screen and (min-width: 768px) {
     position: fixed;
     bottom: 15px;
@@ -46,10 +47,12 @@
 }
 
 .add-block__svg {
-  stroke: $third-text-color;
+  // stroke: $third-text-color;
+  stroke: var(--third-text-color);
 
   &:hover {
-    stroke: $accent-color;
+    // stroke: $accent-color;
+    stroke: var(--accent-color);
   }
 }
 

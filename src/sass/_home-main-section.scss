@@ -43,7 +43,8 @@
         font-weight: 500;
         font-size: 12px;
         line-height: 1.33;
-        color: $third-text-color;
+        // color: $third-text-color;
+        color: var(--third-text-color);
     }
 
     &__text {
@@ -52,7 +53,8 @@
         font-weight: 500;
         font-size: 12px;
         line-height: 1.33;
-        color: $accent-color;
+        // color: $accent-color;
+        color: var(--accent-color);
     }
 
     &__genre {
@@ -61,7 +63,8 @@
         font-weight: 500;
         font-size: 12px;
         line-height: 1.33;
-        color: $accent-color;
+        // color: $accent-color;
+        color: var(--accent-color);
     }
 
     &__card {
@@ -111,7 +114,8 @@
 
     &__rating {
         margin-left: 10px;
-        background: $accent-color;
+        // background: $accent-color;
+        background: var(--accent-color);
         border-radius: 5px;
         width: 36px;
         height: 16px;
@@ -136,8 +140,9 @@
         font-weight: 900;
         font-size: 40px;
         line-height: 1.25;
-        color: $accent-color;
-        }
+        // color: $accent-color;
+        color: var(--accent-color);
+    }
 }
 
 .gallery-list__card:hover,
