@@ -1,14 +1,14 @@
 import { requestPopularMovies } from '../popular-movies/request-popular-movies';
 import { createMarkup } from '../popular-movies/create-markup';
-import { refs } from '../refs-el/refs-el';
-import { setResultData } from '../popular-movies/data-result';
+import { refs} from '../refs-el/refs-el';
+import { setResultData} from '../popular-movies/data-result';
 // document.addEventListener('DOMContentLoaded', ready);
 const paginationList = document.querySelector('.pagination');
 const cardList = document.querySelector('.gallery-list');
 
-console.log(paginationList);
-let currentPage;
-async function ready(page = 1) {
+
+let currentPage = 1;
+async function ready(page) {
   try {
     const response = await requestPopularMovies(page);
     const results = await response.data.results;
@@ -27,8 +27,10 @@ async function ready(page = 1) {
     );
   }
 }
-ready();
-function renderPagination(page, totalPage) {
+
+
+export function renderPagination(page, totalPage) {
+ 
   currentPage = page;
   let paginationMarkup = '';
   let beforeTwoPage = page - 2;
@@ -40,10 +42,10 @@ function renderPagination(page, totalPage) {
     paginationMarkup += `<li class="pagination__arrow pagination__arrow--left materials-icons">&larr;</li>`;
   }
   if (page > 2) {
-    paginationMarkup += `<li class="pagination__number">1</li>`;
+    paginationMarkup += `<li class="pagination__number display-none">1</li>`;
   }
   if (page > 4) {
-    paginationMarkup += `<li class="pagination__number">...</li>`;
+    paginationMarkup += `<li class="pagination__number display-none">...</li>`;
   }
 
   if (page > 3) {
@@ -63,9 +65,9 @@ function renderPagination(page, totalPage) {
   }
   if (page <= totalPage - 1) {
     if (page < totalPage - 3) {
-      paginationMarkup += `<li class="pagination__number points-none">...</li>`;
+      paginationMarkup += `<li class="pagination__number display-none">...</li>`;
     }
-    paginationMarkup += `<li class="pagination__number points-none">${totalPage}</li>`;
+    paginationMarkup += `<li class="pagination__number display-none">${totalPage}</li>`;
   }
 
   if (page < totalPage) {
@@ -76,11 +78,9 @@ function renderPagination(page, totalPage) {
 
   paginationList.addEventListener('click', onPagination);
 }
-console.log('&larr;');
-console.log('&rarr;');
 
 function onPagination(e) {
-  e.preventDefault();
+  
   if (e.target.nodeName !== `LI`) {
     return;
   }
@@ -101,3 +101,5 @@ function onPagination(e) {
       ready(target);
   }
 }
+
+
