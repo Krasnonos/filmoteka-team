@@ -8,10 +8,29 @@ const galleryList = document.querySelector('.gallery-list');
 const watchedPlaceholder = document.querySelector('.js-watched-text');
 const queuePlaceholder = document.querySelector('.js-queue-text');
 
-queueBtn.addEventListener('click', showQueueFilms);
-watchedBtn.addEventListener('click', showQueueFilms);
+queueBtn.addEventListener('click', showFilms);
+watchedBtn.addEventListener('click', showFilms);
+document.addEventListener('DOMContentLoaded', firstShowFilms);
 
-async function showQueueFilms(e) {
+async function firstShowFilms(e) {
+  const localStorageKey = watchedBtn.dataset.key;
+  const filmsArrayJson = localStorage.getItem(localStorageKey);
+  const filmsArray = JSON.parse(filmsArrayJson);
+
+  if (!filmsArray) {
+    galleryList.innerHTML = '';
+    return;
+  }
+
+  const PromisesFilmData = await filmsArray.map(id => getFilmInfoById(id));
+  const filmsResponse = await Promise.all(PromisesFilmData);
+  const filmsData = filmsResponse.map(film => film.data);
+  galleryList.innerHTML = createMarkup(filmsData);
+  setCurrentFilmsData(filmsData);
+  hidePlaceholder(localStorageKey);
+}
+
+async function showFilms(e) {
   const localStorageKey = e.currentTarget.dataset.key;
   const filmsArrayJson = localStorage.getItem(localStorageKey);
   const filmsArray = JSON.parse(filmsArrayJson);
