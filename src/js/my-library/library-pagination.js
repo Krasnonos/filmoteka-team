@@ -14,7 +14,7 @@ export default function renderPagination(pageNum, totalPage) {
   const totalPageNum = Number(totalPage);
   currentPage = Number(page);
   let paginationMarkup = '';
-  let beforeTwoPage = page - Number(1);
+  let beforeTwoPage = page - Number(2);
   let beforePage = page - Number(1);
   let afterTwoPage = page + Number(2);
   let afterPage = page + Number(1);
