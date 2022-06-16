@@ -18,6 +18,8 @@ if (localStorage.getItem(STORAGE_KEY_QUEUE) != null) {
 
 Notify.init({
   width: '350px',
+  position: 'center-top',
+  timeout: 1000,
   success: {
     background: '#ff6b01',
   },

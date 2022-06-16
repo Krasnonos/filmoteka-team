@@ -29,8 +29,6 @@ const userLogin = document.querySelector('#user-login');
 const userLibrary = document.querySelector('#user-library');
 const userLogout = document.querySelector('#user-logout');
 
-
-
 const loginEmailPassword = async (evt) => {
     evt.preventDefault();
 
@@ -41,18 +39,13 @@ const loginEmailPassword = async (evt) => {
         const userCredential = await signInWithEmailAndPassword(auth, loginEmail, loginPassword)
             .then(data => {
                 if (data) {
-                    // Notify.success(`Hello: ${loginEmail}`);
                     modal.classList.toggle('is-hidden');
-                    // toggleAuth();
                     txtEmail.value = '';
                     txtPassword.value = '';
-                    console.log(data);
                 }
-                console.log('btnclick loginEmailPassword');
             })
     }
     catch (error) {
-        console.log(error);
         showLoginError(error);
     }
 }
@@ -68,11 +61,7 @@ const createAccount = async(evt) => {
     try {
         await createUserWithEmailAndPassword(auth, loginEmail, loginPassword)
             .then(async userCredential => {
-                // if (data) {
-                    // Notify.success('Registration completed successfully. Click Log in')
                     modal.classList.toggle('is-hidden');
-                //     console.log(data);
-                // }
                 // try {
                 //     const docRef = await addDoc(collection(firestore, 'users'), {
                 //         email: loginEmail,
@@ -89,11 +78,9 @@ const createAccount = async(evt) => {
         if (loginPassword.length < 7) {
             Notify.info('Your password have less than 6 characters');
         } else {
-            console.log(error);
             showLoginError(error);
         }
     }
-    // userCredential.then(data => console.log(data))
 }
 
 btnSignup.addEventListener('click', createAccount);
@@ -111,7 +98,6 @@ const showLoginError = (error) => {
 
     onAuthStateChanged(auth, user => {
     if (user) {
-        console.log(user);
         toggleAuth();
     }
 }) 
@@ -119,7 +105,6 @@ const showLoginError = (error) => {
 const logout = async () => {
     await signOut(auth);
     toggleAuth();
-    // Notify.info("You have been logged out.");
 }
 
 userLogout.addEventListener('click', logout);
@@ -131,8 +116,6 @@ function toggleAuth() {
 }
 
 // ----------------Firestore-----------------
-
-
 
 // const specialOfTheDay = doc(firestore, 'dailySpecial/2021-09-14'); // path to your document
 
