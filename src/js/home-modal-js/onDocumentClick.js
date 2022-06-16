@@ -6,7 +6,6 @@ import { getModalData } from './getModalData';
 import { showModal } from './showModal';
 
 export function onDocumentClick(event) {
-  console.log(event.target);
   if (
     event.target.classList.contains(
       'remove-film-svg' || event.target.classList.contains('remove-film-btn')
