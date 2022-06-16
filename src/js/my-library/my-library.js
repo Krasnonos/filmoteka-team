@@ -1,4 +1,3 @@
-import getFilmInfoById from './get-films-info-by-id';
 import createMarkup from './create-library-markup';
 import { setCurrentFilmsData } from './current-films-data';
 
@@ -12,25 +11,7 @@ queueBtn.addEventListener('click', showFilms);
 watchedBtn.addEventListener('click', showFilms);
 document.addEventListener('DOMContentLoaded', firstShowFilms);
 
-async function firstShowFilms(e) {
-  const localStorageKey = watchedBtn.dataset.key;
-  const filmsArrayJson = localStorage.getItem(localStorageKey);
-  const filmsArray = JSON.parse(filmsArrayJson);
-
-  if (!filmsArray) {
-    galleryList.innerHTML = '';
-    return;
-  }
-
-  const PromisesFilmData = await filmsArray.map(id => getFilmInfoById(id));
-  const filmsResponse = await Promise.all(PromisesFilmData);
-  const filmsData = filmsResponse.map(film => film.data);
-  galleryList.innerHTML = createMarkup(filmsData);
-  setCurrentFilmsData(filmsData);
-  hidePlaceholder(localStorageKey);
-}
-
-async function showFilms(e) {
+function showFilms(e) {
   const localStorageKey = e.currentTarget.dataset.key;
   const filmsArrayJson = localStorage.getItem(localStorageKey);
   const filmsArray = JSON.parse(filmsArrayJson);
@@ -40,11 +21,23 @@ async function showFilms(e) {
     return;
   }
 
-  const PromisesFilmData = await filmsArray.map(id => getFilmInfoById(id));
-  const filmsResponse = await Promise.all(PromisesFilmData);
-  const filmsData = filmsResponse.map(film => film.data);
-  galleryList.innerHTML = createMarkup(filmsData);
-  setCurrentFilmsData(filmsData);
+  galleryList.innerHTML = createMarkup(filmsArray);
+  setCurrentFilmsData(filmsArray);
+  hidePlaceholder(localStorageKey);
+}
+
+function firstShowFilms(e) {
+  const localStorageKey = watchedBtn.dataset.key;
+  const filmsArrayJson = localStorage.getItem(localStorageKey);
+  const filmsArray = JSON.parse(filmsArrayJson);
+
+  if (!filmsArray) {
+    galleryList.innerHTML = '';
+    return;
+  }
+
+  galleryList.innerHTML = createMarkup(filmsArray);
+  setCurrentFilmsData(filmsArray);
   hidePlaceholder(localStorageKey);
 }
 
