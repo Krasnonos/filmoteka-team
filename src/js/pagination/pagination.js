@@ -79,7 +79,7 @@ export function renderPagination(page, totalPage) {
   paginationList.addEventListener('click', onPagination);
 }
 
-function onPagination(e) {
+export function onPagination(e) {
   
   if (e.target.nodeName !== `LI`) {
     return;
