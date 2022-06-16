@@ -1,21 +1,20 @@
-import { refs } from './refs-el'
-import { getFilm } from "./getFilm";
-import { standartindArrayFilms } from "./standart-array-films";
-import { renderCards } from "./render-cards";
+import { refs } from './refs-el';
+import { getFilm } from './getFilm';
+import { standartindArrayFilms } from './standart-array-films';
+import { renderCards } from './render-cards';
 import { spinnerOn, spinnerOff } from '../spinner-js/spinner';
-import { setResultData } from "../popular-movies/data-result";
-import { onPagination } from "../pagination/pagination";
-import {keywordSearchFilmServise} from './getFilm';
-
+import { setResultData, clearResultData } from '../popular-movies/data-result';
+import { onPagination } from '../pagination/pagination';
+import { keywordSearchFilmServise } from './getFilm';
 
 let currentPage = Number(1);
 
 export function renderPaginationSearch(pageNum, totalPage) {
-  const page = Number(pageNum)
+  const page = Number(pageNum);
   const totalPageNum = Number(totalPage);
   currentPage = Number(page);
   let paginationMarkup = '';
-  let beforeTwoPage = page - Number(1);
+  let beforeTwoPage = page - Number(2);
   let beforePage = page - Number(1);
   let afterTwoPage = page + Number(2);
   let afterPage = page + Number(1);
@@ -56,26 +55,24 @@ export function renderPaginationSearch(pageNum, totalPage) {
     paginationMarkup += `<li name="pagin-search-item" class='pagination__arrow pagination__arrow--right materials-icons'>&rarr;</li>`;
   }
 
-    refs.paginationList.innerHTML = paginationMarkup;
+  refs.paginationList.innerHTML = paginationMarkup;
 
-    refs.paginationList.removeEventListener('click', onPagination);
-    refs.paginationList.addEventListener('click', onPaginationSearch);
-    
+  refs.paginationList.removeEventListener('click', onPagination);
+  refs.paginationList.addEventListener('click', onPaginationSearch);
 }
 
 async function onPaginationSearch(e) {
-  
   if (e.target.nodeName !== `LI`) {
     return;
-    }
-    
+  }
+
   const target = e.target.textContent;
   window.scrollTo({ top: 240, behavior: 'smooth' });
   switch (target) {
-    case '←':
+    case '<':
       paginGet(currentPage - 1);
       break;
-    case '→':
+    case '>':
       paginGet(currentPage + 1);
       break;
 
@@ -88,25 +85,23 @@ async function onPaginationSearch(e) {
 }
 
 async function paginGet(currentPage) {
+  let inputValue = keywordSearchFilmServise.query;
 
-    let inputValue = keywordSearchFilmServise.query;
+  spinnerOn();
 
-    spinnerOn();
+  const { arrayFilms, totalPages } = await getFilm(inputValue, currentPage);
 
-    const {arrayFilms, totalPages} = await getFilm(inputValue, currentPage);
+  spinnerOff();
 
-    spinnerOff();
+  clearResultData();
 
-    setResultData(arrayFilms);
-    
-    const validFilmsArray = standartindArrayFilms(arrayFilms);
-    
-    renderCards(validFilmsArray);
+  setResultData(arrayFilms);
 
-    refs.paginationList.innerHTML = '';
+  const validFilmsArray = standartindArrayFilms(arrayFilms);
 
-    renderPaginationSearch(currentPage, totalPages);
+  renderCards(validFilmsArray);
 
+  refs.paginationList.innerHTML = '';
+
+  renderPaginationSearch(currentPage, totalPages);
 }
- 
-

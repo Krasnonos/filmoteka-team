@@ -21,7 +21,6 @@ export function onDocumentClick(event) {
     // нова логіка отримання даних для модального вікна (без завантаження даних з сервера)
     const currentModalData = getCurrentModalDataFromLocalArray(id);
     if (currentModalData) {
-      console.log('dataIsInArray');
       showModal(currentModalData);
     } else {
       // spinnerOn();

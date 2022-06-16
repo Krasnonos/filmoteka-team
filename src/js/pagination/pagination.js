@@ -1,11 +1,9 @@
 import { requestPopularMovies } from '../popular-movies/request-popular-movies';
 import { createMarkup } from '../popular-movies/create-markup';
-import { refs} from '../refs-el/refs-el';
-import { setResultData} from '../popular-movies/data-result';
-// document.addEventListener('DOMContentLoaded', ready);
+import { refs } from '../refs-el/refs-el';
+import { setResultData, clearResultData } from '../popular-movies/data-result';
 const paginationList = document.querySelector('.pagination');
 const cardList = document.querySelector('.gallery-list');
-
 
 let currentPage = 1;
 async function ready(page) {
@@ -16,11 +14,10 @@ async function ready(page) {
     const totalPage = response.data.total_pages;
     cardList.innerHTML = '';
     refs.galleryListEl.insertAdjacentHTML('afterbegin', createMarkup(results));
+    clearResultData();
     setResultData(results);
-    console.log(response);
     renderPagination(currentPage, totalPage);
   } catch (error) {
-    console.log(error);
     refs.galleryListEl.insertAdjacentHTML(
       'afterbegin',
       '<li class="gallery-list__error">No connection to server!!!</li>'
@@ -28,9 +25,7 @@ async function ready(page) {
   }
 }
 
-
 export function renderPagination(page, totalPage) {
- 
   currentPage = page;
   let paginationMarkup = '';
   let beforeTwoPage = page - 2;
@@ -80,17 +75,16 @@ export function renderPagination(page, totalPage) {
 }
 
 export function onPagination(e) {
-  
   if (e.target.nodeName !== `LI`) {
     return;
   }
   const target = e.target.textContent;
   window.scrollTo({ top: 240, behavior: 'smooth' });
   switch (target) {
-    case '←':
+    case '<':
       ready(currentPage - 1);
       break;
-    case '→':
+    case '>':
       ready(currentPage + 1);
       break;
 
@@ -101,5 +95,3 @@ export function onPagination(e) {
       ready(target);
   }
 }
-
-
