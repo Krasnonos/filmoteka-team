@@ -1,5 +1,6 @@
 // -------------------
 const clearBtn = document.querySelector('.clear-library-btn');
+const paginationList = document.querySelector('.pagination');
 const libraryList = document.querySelector('.gallery-list');
 const watchedPlaceholder = document.querySelector('.js-watched-text');
 const queuePlaceholder = document.querySelector('.js-queue-text');
@@ -23,4 +24,5 @@ function findLocalStorageKey(e) {
 function clearLocalStorageAndFilmList(lockalStorageKey) {
   localStorage.removeItem(lockalStorageKey);
   libraryList.innerHTML = '';
+  paginationList.style.display = 'none';
 }
