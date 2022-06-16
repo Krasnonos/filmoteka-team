@@ -24,11 +24,3 @@ function clearLocalStorageAndFilmList(lockalStorageKey) {
   localStorage.removeItem(lockalStorageKey);
   libraryList.innerHTML = '';
 }
-
-// -----------------------------------------//
-// потрібно <button type="button" class="clear-library-btn">
-//       clear list </button>
-// на кнопку queue поставити  data-key="queueKey"
-// на кнопку  watched поставити data-key="watchedKey" data-current="currentPage"
-// на блок-заглушку queue поставити класс js-queue-text" та style="display: none"
-// на блок-заглушку watched поставити класс js-watched-text
