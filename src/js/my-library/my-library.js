@@ -8,6 +8,7 @@ const queueBtn = document.querySelector('#queue');
 const galleryList = document.querySelector('.gallery-list');
 const watchedPlaceholder = document.querySelector('.js-watched-text');
 const queuePlaceholder = document.querySelector('.js-queue-text');
+const paginationList = document.querySelector('.pagination');
 let currentPage = 1;
 
 queueBtn.addEventListener('click', showFilms);
@@ -36,15 +37,19 @@ function showFilms(e) {
   const localStorageKey = currentSection.dataset.key;
   const filmsArrayJson = localStorage.getItem(localStorageKey);
   const filmsArrayAll = JSON.parse(filmsArrayJson);
-  const partOfFilms = getPartOfFilms(filmsArrayAll, currentPage);
-  const totalPage = Math.ceil(filmsArrayAll.length / 20);
 
   if (!filmsArrayAll) {
     galleryList.innerHTML = '';
+    paginationList.style.display = 'none';
     return;
   }
 
-  if (filmsArrayAll.length > 20) {
+  const partOfFilms = getPartOfFilms(filmsArrayAll, currentPage);
+  const totalPage = Math.ceil(filmsArrayAll.length / 20);
+
+  paginationList.style.display = 'none';
+  if (Number(filmsArrayAll.length) > 20) {
+    paginationList.style.display = 'flex';
     libraryPagination(currentPage, totalPage);
   }
 

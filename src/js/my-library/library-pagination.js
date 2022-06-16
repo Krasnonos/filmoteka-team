@@ -3,7 +3,7 @@ import hidePlaceholder from './my-library';
 import createMarkup from './create-library-markup';
 import { setCurrentFilmsData } from './current-films-data';
 
-const watchedBtn = document.querySelector('#watched');
+// const watchedBtn = document.querySelector('#watched');
 const paginationList = document.querySelector('.pagination');
 const galleryList = document.querySelector('.gallery-list');
 
@@ -86,20 +86,41 @@ function paginationNext(e) {
 }
 
 function showFilms(page) {
-  const localStorageKey = watchedBtn.dataset.key;
+  //   const localStorageKey = watchedBtn.dataset.key;
+  //   const filmsArrayJson = localStorage.getItem(localStorageKey);
+  //   const filmsArray = JSON.parse(filmsArrayJson);
+  //   const partOffilms = getPartOfFilms(filmsArray, page);
+
+  //   const totalPage = Math.ceil(filmsArray.length / 20);
+  //   renderPagination(page, totalPage);
+
+  //   if (!filmsArray) {
+  //     galleryList.innerHTML = '';
+  //     return;
+  //   }
+  //   console.log(partOffilms);
+  //   galleryList.innerHTML = createMarkup(partOffilms);
+  //   setCurrentFilmsData(partOffilms);
+  //   hidePlaceholder(localStorageKey);
+  const currentSection = document.querySelector(
+    'button[data-current="currentPage"]'
+  );
+  const localStorageKey = currentSection.dataset.key;
   const filmsArrayJson = localStorage.getItem(localStorageKey);
-  const filmsArray = JSON.parse(filmsArrayJson);
-  const partOffilms = getPartOfFilms(filmsArray, page);
+  const filmsArrayAll = JSON.parse(filmsArrayJson);
+  const partOfFilms = getPartOfFilms(filmsArrayAll, page);
+  const totalPage = Math.ceil(filmsArrayAll.length / 20);
 
-  const totalPage = Math.ceil(filmsArray.length / 20);
-  renderPagination(page, totalPage);
-
-  if (!filmsArray) {
+  if (!filmsArrayAll) {
     galleryList.innerHTML = '';
     return;
   }
-  console.log(partOffilms);
-  galleryList.innerHTML = createMarkup(partOffilms);
-  setCurrentFilmsData(partOffilms);
+
+  if (filmsArrayAll.length >= 20) {
+    renderPagination(page, totalPage);
+  }
+
+  galleryList.innerHTML = createMarkup(partOfFilms);
+  setCurrentFilmsData(partOfFilms);
   hidePlaceholder(localStorageKey);
 }

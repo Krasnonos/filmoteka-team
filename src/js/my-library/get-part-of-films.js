@@ -5,6 +5,7 @@ export default function getPartOfFilms(AllFilms, page) {
 
   for (let i = startIndex; i < endIndex; i++) {
     if (!AllFilms[i]) {
+      // galleryList.innerHTML = '';
       break;
     }
     newPartOfFilms.push(AllFilms[i]);
