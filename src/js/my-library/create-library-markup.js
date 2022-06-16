@@ -2,6 +2,7 @@ import hbs from '../../hbs-templates/film-card-library.hbs';
 import { genreIds } from '../popular-movies/ganre-ids';
 import { convertGanres } from '../popular-movies/convert-name-ganres';
 import imgNotFound from '../../images/image-not-found-adaptive.png';
+import svg from '../../images/icons.svg';
 
 export default function createMarkup(results) {
   let markup = '';
@@ -13,6 +14,7 @@ export default function createMarkup(results) {
       ganres.push('Others');
     }
     const data = {
+      svg,
       filmId: res.id,
       title: res.name || res.title || 'XXXX',
       urlImg: res.poster_path,
