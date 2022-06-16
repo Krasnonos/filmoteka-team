@@ -3,6 +3,7 @@ import { spinnerOff, spinnerOn } from '../spinner-js/spinner';
 import { getCardElement } from './getCardElement';
 import { getCurrentModalDataFromLocalArray } from './getCurrentModalDataFromLocalArray';
 import { getModalData } from './getModalData';
+import { getModalDataFromLocalStorage } from './getModalDataFromLocalStorage';
 import { showModal } from './showModal';
 
 export function onDocumentClick(event) {
@@ -20,13 +21,16 @@ export function onDocumentClick(event) {
     // нова логіка отримання даних для модального вікна (без завантаження даних з сервера)
     const currentModalData = getCurrentModalDataFromLocalArray(id);
     if (currentModalData) {
+      console.log('dataIsInArray');
       showModal(currentModalData);
     } else {
-      spinnerOn();
-      getModalData(id).then(resp => {
-        showModal(resp);
-        spinnerOff();
-      });
+      // spinnerOn();
+      // console.log('dataIsNotInArray');
+      // getModalData(id).then(resp => {
+      //   showModal(resp);
+      //   spinnerOff();
+      // });
+      showModal(getModalDataFromLocalStorage(id));
     }
   }
 }
