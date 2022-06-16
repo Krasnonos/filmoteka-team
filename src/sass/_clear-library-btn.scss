@@ -7,13 +7,13 @@
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
-  border: 1px solid #000000;
+  border: 1px solid var(--third-text-color);
   border-radius: 5px;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.33;
   text-transform: uppercase;
-  color: $third-text-color;
+  color: var(--third-text-color);
 
   &:hover,
   &:focus {
