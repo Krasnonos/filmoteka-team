@@ -11,7 +11,7 @@
   text-align: center;
   font-size: 16px;
   line-height: 1.33;
-  color: $third-text-color;
+  color: var(--third-text-color);
 }
 
 .advice-list__wrap {
@@ -74,6 +74,7 @@
   border: 1px solid #ffffff;
   border-radius: 5px;
   text-align: center;
+  color: var(--third-text-color);
 
   &:hover,
   &:focus {
