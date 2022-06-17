@@ -15,20 +15,6 @@ queueBtn.addEventListener('click', showFilms);
 watchedBtn.addEventListener('click', showFilms);
 document.addEventListener('DOMContentLoaded', showFilms);
 
-// function showFilms(e) {
-//   const localStorageKey = e.currentTarget.dataset.key;
-//   const filmsArrayJson = localStorage.getItem(localStorageKey);
-//   const filmsArray = JSON.parse(filmsArrayJson);
-
-//   if (!filmsArray) {
-//     galleryList.innerHTML = '';
-//     return;
-//   }
-
-//   galleryList.innerHTML = createMarkup(filmsArray);
-//   setCurrentFilmsData(filmsArray);
-//   hidePlaceholder(localStorageKey);
-// }
 
 function showFilms(e) {
   const currentSection = document.querySelector(

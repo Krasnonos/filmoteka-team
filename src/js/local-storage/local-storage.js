@@ -47,10 +47,10 @@ export function onBtnQueueClick() {
   const currentFilm = result.find(el => el.id === Number(filmId));
 
   if (filmsQueue.every(el => el.id !== Number(filmId))) {
-    Notify.success('The movie has been added to the list of watched.');
+    Notify.success('The movie has been added to the list of queue.');
     filmsQueue.push(currentFilm);
   } else {
-    Notify.info('The movie has already been added to watched.');
+    Notify.info('The movie has already been added to queue.');
   }
 
   localStorage.setItem(STORAGE_KEY_QUEUE, JSON.stringify(filmsQueue));
