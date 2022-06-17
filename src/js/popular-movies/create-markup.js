@@ -10,13 +10,20 @@ export function createMarkup(results) {
     const ganres = res.genre_ids
       ? res.genre_ids.map(id => convertGanres(genreIds, id))
       : ['Others'];
-    const imgValid = res.poster_path
-      ? `https://image.tmdb.org/t/p/w300${res.poster_path}`
-      : imgNotFound;
 
     if (ganres.length > 2) {
       ganres.length = 2;
       ganres.push('Others');
+    }
+
+    let imgValid = '';
+
+    if (res.poster_path) {
+      imgValid = `https://image.tmdb.org/t/p/w300${res.poster_path}`;
+    } else if (res.profile_path) {
+      imgValid = `https://image.tmdb.org/t/p/w300${res.profile_path}`;
+    } else {
+      imgValid = imgNotFound;
     }
 
     const data = {
