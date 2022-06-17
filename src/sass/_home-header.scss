@@ -9,7 +9,7 @@
 
     }
 
-    @media screen and (min-width: 767px)and (max-width: 1023px) {
+    @media screen and (min-width: 768px)and (max-width: 1023px) {
         padding-top: 40px;
         // padding-bottom: 24px;
         // border-bottom: 1px solid #ececec;
@@ -17,7 +17,7 @@
         background-image: url(../images/hero-tablet-min.png);
     }
 
-    @media screen and (min-width: 1px) and (max-width: 766px) {
+    @media screen and (min-width: 1px) and (max-width: 767px) {
         padding-top: 44px;
         // padding-bottom: 24px;
         // border-bottom: 1px solid #ececec;
@@ -43,14 +43,14 @@
 
         }
 
-        @media screen and (min-width: 1px) and (max-width: 766px) {
+        @media screen and (min-width: 1px) and (max-width: 767px) {
             display: flex;
             justify-content: space-between;
             align-items: center;
 
         }
 
-        @media screen and (min-width: 767px) {
+        @media screen and (min-width: 768px) {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -67,11 +67,11 @@
             margin-right: 32px;
         }
 
-        @media screen and (max-width: 766px) {
+        @media screen and (max-width: 767px) {
             margin-right: 20px;
         }
 
-        @media screen and (min-width: 767px) and (max-width: 1023px) {
+        @media screen and (min-width: 768px) and (max-width: 1023px) {
             display: flex;
             margin-left: 80px;
             flex-direction: column;
@@ -124,7 +124,7 @@
     }
 
     &__logo {
-        @media screen and (min-width:1px) and (max-width: 766px) {
+        @media screen and (min-width:1px) and (max-width: 767px) {
             display: none;
         }
 
@@ -146,7 +146,7 @@
         color: #FFFFFF;
 
         &-icon {
-            @media screen and (min-width:1px) and (max-width: 766px) {
+            @media screen and (min-width:1px) and (max-width: 767px) {
                 display: auto;
             }
 
@@ -172,14 +172,14 @@
 
 .header__logo-mob {
 
-    @media screen and (min-width: 1px) and (max-width: 766px) {
+    @media screen and (min-width: 1px) and (max-width: 767px) {
         display: flex;
         align-items: center;
         text-align: center;
         margin-left: 20px;
     }
 
-    @media screen and (min-width: 767px) {
+    @media screen and (min-width: 768px) {
         display: none;
     }
 
@@ -190,11 +190,11 @@
 }
 
 .header__logo-mob-icon {
-    @media screen and (min-width: 767px) {
+    @media screen and (min-width: 768px) {
         display: none;
     }
 
-    @media screen and (min-width: 1px) and (max-width: 766px) {
+    @media screen and (min-width: 1px) and (max-width: 767px) {
         margin-right: 10px;
     }
 
@@ -242,12 +242,12 @@
 
 
 
-    @media screen and (min-width: 767px) {
+    @media screen and (min-width: 768px) {
         width: 324px;
         height: 20px;
     }
 
-    @media screen and (min-width: 1px) and (max-width: 766px) {
+    @media screen and (min-width: 1px) and (max-width: 767px) {
         width: 268px;
         height: 20px;
     }
@@ -309,14 +309,14 @@
 }
 
 .home-header_line_message {
-    @media screen and (min-width:1px) and (max-width: 766px) {
+    @media screen and (min-width:1px) and (max-width: 767px) {
         // display: none;
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
-    @media screen and (min-width: 767px) {
+    @media screen and (min-width: 768px) {
         // display: none;
         display: flex;
         justify-content: center;
@@ -350,12 +350,12 @@
         height: 35px;
     }
 
-    @media screen and (min-width: 767px) and (max-width:1023px) {
+    @media screen and (min-width: 768px) and (max-width:1023px) {
         width: 80px;
         height: 35px;
     }
 
-    @media screen and (min-width: 1px) and (max-width: 766px) {
+    @media screen and (min-width: 1px) and (max-width: 767px) {
         width: 70px;
         height: 55px;
     }
@@ -371,12 +371,12 @@
         left: 20px;
     }
 
-    @media screen and (min-width: 767px) and (max-width:1023px) {
+    @media screen and (min-width: 768px) and (max-width:1023px) {
         top: 10px;
         left: 20px;
     }
 
-    @media screen and (min-width: 1px) and (max-width: 766px) {
+    @media screen and (min-width: 1px) and (max-width: 767px) {
         top: 30px;
         left: 15px;
     }
