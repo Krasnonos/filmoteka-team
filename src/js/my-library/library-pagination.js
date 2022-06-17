@@ -3,7 +3,6 @@ import hidePlaceholder from './my-library';
 import createMarkup from './create-library-markup';
 import { setCurrentFilmsData } from './current-films-data';
 
-// const watchedBtn = document.querySelector('#watched');
 const paginationList = document.querySelector('.pagination');
 const galleryList = document.querySelector('.gallery-list');
 
@@ -57,9 +56,6 @@ export default function renderPagination(pageNum, totalPage) {
 
   paginationList.innerHTML = paginationMarkup;
   paginationList.addEventListener('click', paginationNext);
-
-  //   refs.paginationList.removeEventListener('click', onPagination);
-  //   refs.paginationList.addEventListener('click', onPaginationSearch);
 }
 
 function paginationNext(e) {
@@ -86,22 +82,6 @@ function paginationNext(e) {
 }
 
 function showFilms(page) {
-  //   const localStorageKey = watchedBtn.dataset.key;
-  //   const filmsArrayJson = localStorage.getItem(localStorageKey);
-  //   const filmsArray = JSON.parse(filmsArrayJson);
-  //   const partOffilms = getPartOfFilms(filmsArray, page);
-
-  //   const totalPage = Math.ceil(filmsArray.length / 20);
-  //   renderPagination(page, totalPage);
-
-  //   if (!filmsArray) {
-  //     galleryList.innerHTML = '';
-  //     return;
-  //   }
-  //   console.log(partOffilms);
-  //   galleryList.innerHTML = createMarkup(partOffilms);
-  //   setCurrentFilmsData(partOffilms);
-  //   hidePlaceholder(localStorageKey);
   const currentSection = document.querySelector(
     'button[data-current="currentPage"]'
   );

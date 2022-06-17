@@ -210,7 +210,7 @@
   align-items: center;
   text-align: center;
   justify-content: space-between;
-  width: 140px;
+  width: 165px;
   max-height: 55px;
   margin-right: 15px;
   margin-left: 15px;
@@ -228,7 +228,7 @@
   }
 
   @media screen and (min-width: 768px) {
-    width: 160px;
+    width: 175px;
     min-height: 60px;
   }
 }
@@ -268,10 +268,6 @@
   font-size: 14px;
   line-height: 1.33;
   margin-bottom: 3px;
-
-  @media screen and (min-width: 768px) {
-    font-size: 16px;
-  }
 }
 
 .team-list__message-content {
