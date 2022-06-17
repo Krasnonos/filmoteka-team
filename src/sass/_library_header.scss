@@ -1,5 +1,5 @@
 .library-header {
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1024px) {
         padding-top: 40px;
         // padding-bottom: 24px;
         // border-bottom: 1px solid #ececec;
@@ -8,7 +8,7 @@
 
     }
 
-    @media screen and (min-width: 768px)and (max-width: 1199px) {
+    @media screen and (min-width: 768px)and (max-width: 1023px) {
         padding-top: 40px;
         // padding-bottom: 24px;
         // border-bottom: 1px solid #ececec;
@@ -33,7 +33,7 @@
 
 
     &__container {
-        @media screen and (min-width: 1200px) {
+        @media screen and (min-width: 1024px) {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -58,7 +58,7 @@
     }
 
     &__navigation {
-        @media screen and (min-width: 1200px) {
+        @media screen and (min-width: 1024px) {
             display: flex;
             margin-left: auto;
             align-items: center;
@@ -71,7 +71,7 @@
             margin-right: 20px;
         }
 
-        @media screen and (min-width: 768px) and (max-width: 1199px) {
+        @media screen and (min-width: 768px) and (max-width: 1023px) {
             display: flex;
             margin-left: 80px;
             flex-direction: column;
@@ -124,7 +124,7 @@
     }
 
     &__logo {
-        @media screen and (min-width:1px) and (max-width: 768px) {
+        @media screen and (min-width:1px) and (max-width: 767px) {
             display: none;
         }
 
@@ -146,7 +146,7 @@
         color: #FFFFFF;
 
         &-icon {
-            @media screen and (min-width:1px) and (max-width: 768px) {
+            @media screen and (min-width:1px) and (max-width: 767px) {
                 display: auto;
             }
 
@@ -172,13 +172,13 @@
         justify-content: center;
 
         &_watch {
-            @media screen and (min-width: 1200px) {
+            @media screen and (min-width: 1024px) {
                 left: 700px;
                 top: 430px;
 
             }
 
-            @media screen and (min-width: 1200px) {
+            @media screen and (min-width: 1024px) {
                 width: 147px;
                 height: 42px;
             }
